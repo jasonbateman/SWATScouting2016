@@ -6,9 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class HomeScreen extends AppCompatActivity {
 
     @Override
@@ -27,8 +24,8 @@ public class HomeScreen extends AppCompatActivity {
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txtTime.setText(getCurrentTimeStamp());
-                txtTimeElapsed.setText(getTimeElapsed(startTime));
+                txtTime.setText(Time.getCurrentTimeStamp());
+                txtTimeElapsed.setText(Time.getTimeElapsed(startTime));
 
 
 
@@ -37,26 +34,5 @@ public class HomeScreen extends AppCompatActivity {
 
 
     }
-    //Getting TimeStamp... Will prove to be important.
-
-    public static String getCurrentTimeStamp(){
-        SimpleDateFormat s = new SimpleDateFormat("hhmmss");
-        String format = s.format(new Date());
-        return format;
-
-    }
-
-    public static String getTimeElapsed(String startTime){
-
-        SimpleDateFormat newTimeFormat = new SimpleDateFormat("hhmmss");
-        String newTime = newTimeFormat.format(new Date());
-        int timeElapsed = Integer.parseInt(newTime) - Integer.parseInt(startTime);
-        return Integer.toString(timeElapsed);
-
-
-
-    }
-
-
 
 }
