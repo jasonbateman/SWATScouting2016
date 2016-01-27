@@ -8,7 +8,7 @@ public class Match {
     private boolean _defense;
     private String _notes;
 
-    private Match(int id, int matchNum, int teamNum, boolean defense, String notes,
+    public Match(int id, int matchNum, int teamNum, boolean defense, String notes,
                   int avgPort, int numPort,
                   int avgCheval, int numCheval,
                   int avgMoat, int numMoat,
@@ -53,7 +53,7 @@ public class Match {
     public boolean getDefense(){return _defense;}
     public String getNotes(){return _notes;}
 
-    public int getAvgPort(){return _avgPort};
+    public int getAvgPort(){return _avgPort;};
     public int getAvgCheval(){return _avgCheval;}
     public int getAvgMoat(){return _avgMoat;}
     public int getAvgRamp(){return _avgRamp;}
