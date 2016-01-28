@@ -13,8 +13,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnTest"
-        android:text="Update Clock!" />
+        android:id="@+id/btnWrite"
+        android:text="Write File!" />
 
     <EditText
         android:layout_width="match_parent"
@@ -27,5 +27,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtTimeElapsed"
         android:layout_marginTop="15dp" />
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/readFile"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Read File!"
+        android:id="@+id/btnRead"
+        android:layout_gravity="center_horizontal"
+        />
 
 </LinearLayout>
