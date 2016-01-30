@@ -8,6 +8,9 @@ import java.util.Date;
  */
 public class Time {
 
+    public static String startTime = "";
+
+
     public static String getCurrentTimeStamp(){
         SimpleDateFormat s = new SimpleDateFormat("hhmmss");
         String format = s.format(new Date());
@@ -15,13 +18,18 @@ public class Time {
 
     }
 
-    public static String getTimeElapsed(String startTime){
+    public static String getTimeElapsed(){
 
         SimpleDateFormat newTimeFormat = new SimpleDateFormat("hhmmss");
         String newTime = newTimeFormat.format(new Date());
         int timeElapsed = Integer.parseInt(newTime) - Integer.parseInt(startTime);
-        return Integer.toString(timeElapsed);
+        String test =  Integer.toString(timeElapsed);
+        return test;
 
+    }
+
+    public static void setStartTime(){
+        startTime = getCurrentTimeStamp();
     }
 
 }

@@ -40,11 +40,8 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 txtTime.setText(Time.getCurrentTimeStamp());
-                txtTimeElapsed.setText(Time.getTimeElapsed(startTime));
+                txtTimeElapsed.setText(Time.getTimeElapsed());
                 exportDB("Scouting.db");
-
-
-
             }
         });
 
@@ -52,7 +49,7 @@ public class HomeScreen extends AppCompatActivity {
         btnRead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Time.setStartTime();
             }
         });
         //Create PUBLIC scouting folder
