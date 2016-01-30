@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.example.batemanj16.swatscouting2016"
+        applicationId "com.example.libertyc17.swatscouting2016"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1

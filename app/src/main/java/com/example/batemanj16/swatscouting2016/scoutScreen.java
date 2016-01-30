@@ -11,3 +11,7 @@ public class scoutScreen extends AppCompatActivity {
         setContentView(R.layout.activity_scout_screen);
     }
 }
+
+
+
+
