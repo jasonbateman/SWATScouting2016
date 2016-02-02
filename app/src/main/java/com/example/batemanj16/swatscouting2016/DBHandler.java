@@ -21,7 +21,7 @@ public class DBHandler extends SQLiteOpenHelper {
             KEY_MATCH_NUMBER = "matchNum",
             KEY_TEAM_NUMBER = "teamNum",
             KEY_DEFENSE = "defense",
-            KEY_NOTES = "notes",
+            KEY_NOTES = "notes", KEY_ACCURACY = "accuracy", KEY_SHOTS_TAKEN = "shotsTaken", KEY__CLIMB = "climb", KEY_FOULS = "fouls",
 
             KEY_AVG_PORT = "avgPort",
             KEY_AVG_CHEVAL = "avgCheval",
@@ -57,6 +57,10 @@ public class DBHandler extends SQLiteOpenHelper {
                 + KEY_TEAM_NUMBER + " INTEGER,"
                 + KEY_DEFENSE + " BIT,"
                 + KEY_NOTES + " TEXT,"
+                + KEY_ACCURACY + " INTEGER,"
+                + KEY_SHOTS_TAKEN + " INTEGER,"
+                + KEY__CLIMB + " BIT,"
+                + KEY_FOULS + " INTEGER,"
 
                 + KEY_AVG_PORT + " INTEGER,"
                 + KEY_AVG_CHEVAL + " INTEGER,"
@@ -96,6 +100,10 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_TEAM_NUMBER, match.getTeamNum());
         values.put(KEY_DEFENSE, match.getDefense());
         values.put(KEY_NOTES, match.getNotes());
+        values.put(KEY_ACCURACY, match.getAccuracy());
+        values.put(KEY_SHOTS_TAKEN, match.getShotsTaken());
+        values.put(KEY__CLIMB, match.getClimb());
+        values.put(KEY_FOULS, match.getFouls());
 
         values.put(KEY_AVG_PORT, match.getAvgPort());
         values.put(KEY_AVG_CHEVAL, match.getAvgCheval());
@@ -105,6 +113,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_AVG_SALLY, match.getAvgSally());
         values.put(KEY_AVG_ROUGH, match.getAvgRough());
         values.put(KEY_AVG_RAMP, match.getAvgRamp());
+        values.put(KEY_AVG_ROCK, match.getAvgRock());
         values.put(KEY_AVG_LOW, match.getAvgLow());
 
         values.put(KEY_NUM_PORT, match.getNumPort());
@@ -132,6 +141,11 @@ public class DBHandler extends SQLiteOpenHelper {
                 KEY_TEAM_NUMBER,
                 KEY_DEFENSE,
                 KEY_NOTES,
+                KEY_ACCURACY,
+                KEY_SHOTS_TAKEN,
+                KEY__CLIMB,
+                KEY_FOULS,
+
                 KEY_AVG_PORT,
                 KEY_AVG_CHEVAL,
                 KEY_AVG_MOAT,
@@ -161,9 +175,10 @@ public class DBHandler extends SQLiteOpenHelper {
                 Integer.parseInt(cursor.getString(2)),
                 Boolean.parseBoolean(cursor.getString(3)),
                 cursor.getString(4),
+
                 Integer.parseInt(cursor.getString(5)),
                 Integer.parseInt(cursor.getString(6)),
-                Integer.parseInt(cursor.getString(7)),
+                Boolean.parseBoolean(cursor.getString(7)),
                 Integer.parseInt(cursor.getString(8)),
                 Integer.parseInt(cursor.getString(9)),
                 Integer.parseInt(cursor.getString(10)),
@@ -178,7 +193,11 @@ public class DBHandler extends SQLiteOpenHelper {
                 Integer.parseInt(cursor.getString(19)),
                 Integer.parseInt(cursor.getString(20)),
                 Integer.parseInt(cursor.getString(21)),
-                Integer.parseInt(cursor.getString(22))
+                Integer.parseInt(cursor.getString(22)),
+                Integer.parseInt(cursor.getString(23)),
+                Integer.parseInt(cursor.getString(24)),
+                Integer.parseInt(cursor.getString(25)),
+                Integer.parseInt(cursor.getString(26))
 
                 );
         db.close();
@@ -215,6 +234,10 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_TEAM_NUMBER, match.getTeamNum());
         values.put(KEY_DEFENSE, match.getDefense());
         values.put(KEY_NOTES, match.getNotes());
+        values.put(KEY_ACCURACY, match.getAccuracy());
+        values.put(KEY_SHOTS_TAKEN, match.getShotsTaken());
+        values.put(KEY__CLIMB, match.getClimb());
+        values.put(KEY_FOULS, match.getFouls());
 
         values.put(KEY_AVG_PORT, match.getAvgPort());
         values.put(KEY_AVG_CHEVAL, match.getAvgCheval());
@@ -224,6 +247,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_AVG_SALLY, match.getAvgSally());
         values.put(KEY_AVG_ROUGH, match.getAvgRough());
         values.put(KEY_AVG_RAMP, match.getAvgRamp());
+        values.put(KEY_AVG_ROCK, match.getAvgRock());
         values.put(KEY_AVG_LOW, match.getAvgLow());
 
         values.put(KEY_NUM_PORT, match.getNumPort());
@@ -252,9 +276,10 @@ public class DBHandler extends SQLiteOpenHelper {
                         Integer.parseInt(cursor.getString(2)),
                         Boolean.parseBoolean(cursor.getString(3)),
                         cursor.getString(4),
+
                         Integer.parseInt(cursor.getString(5)),
                         Integer.parseInt(cursor.getString(6)),
-                        Integer.parseInt(cursor.getString(7)),
+                        Boolean.parseBoolean(cursor.getString(7)),
                         Integer.parseInt(cursor.getString(8)),
                         Integer.parseInt(cursor.getString(9)),
                         Integer.parseInt(cursor.getString(10)),
@@ -269,7 +294,11 @@ public class DBHandler extends SQLiteOpenHelper {
                         Integer.parseInt(cursor.getString(19)),
                         Integer.parseInt(cursor.getString(20)),
                         Integer.parseInt(cursor.getString(21)),
-                        Integer.parseInt(cursor.getString(22)));
+                        Integer.parseInt(cursor.getString(22)),
+                        Integer.parseInt(cursor.getString(23)),
+                        Integer.parseInt(cursor.getString(24)),
+                        Integer.parseInt(cursor.getString(25)),
+                        Integer.parseInt(cursor.getString(26)));
                 matches.add(match);
             }
             while (cursor.moveToNext());

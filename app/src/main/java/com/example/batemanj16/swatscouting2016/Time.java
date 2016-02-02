@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class Time {
 
-    public static String startTime = "";
+    public static String startTime = "000000";
 
 
     public static String getCurrentTimeStamp(){
@@ -22,7 +22,7 @@ public class Time {
 
         SimpleDateFormat newTimeFormat = new SimpleDateFormat("hhmmss");
         String newTime = newTimeFormat.format(new Date());
-        int timeElapsed = Integer.parseInt(newTime) - Integer.parseInt(startTime);
+        int timeElapsed = Integer.parseInt(newTime.toString()) - Integer.parseInt(startTime.toString());
         String test =  Integer.toString(timeElapsed);
         return test;
 
