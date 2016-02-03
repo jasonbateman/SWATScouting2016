@@ -35,14 +35,14 @@
     </string-array>
 
     <string-array name="defenseItems4">
-        <item>Portcullis      </item>
-        <item>Cheval de Frise </item>
-        <item>Moat            </item>
-        <item>Ramparts        </item>
-        <item>Drawbridge      </item>
-        <item>Sally Port      </item>
-        <item>Rock Wall       </item>
-        <item>Rough Terrain   </item>
+        <item>Portcullis</item>
+        <item>Cheval de Frise</item>
+        <item>Moat</item>
+        <item>Ramparts</item>
+        <item>Drawbridge</item>
+        <item>Sally Port</item>
+        <item>Rock Wall</item>
+        <item>Rough Terrain</item>
     </string-array>
 
 
