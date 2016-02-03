@@ -158,5 +158,22 @@
             android:clickable="true" />
     </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_weight="0.49">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auto"
+            android:id="@+id/btn_autoScreen"
+            android:layout_marginLeft="247dp"
+            android:onClick="goAuto"
+
+            />
+    </LinearLayout>
+
 </LinearLayout>
 
