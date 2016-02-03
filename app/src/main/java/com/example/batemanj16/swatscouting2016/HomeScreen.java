@@ -62,7 +62,7 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-    public void sendMessage(View view){
+    public void btn2ScoutScreen(View view){
         Intent intent = new Intent(this, scoutScreen.class);
         startActivity(intent);
 

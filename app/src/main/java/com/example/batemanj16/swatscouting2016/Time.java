@@ -52,6 +52,10 @@ public class Time {
     public static void setStartTime(){
         startTime = getCurrentTimeStamp();
     }
+
+    public void startMatch(){
+
+    }
     public void endMatch() {
         isTimerRunning = false;
     }
