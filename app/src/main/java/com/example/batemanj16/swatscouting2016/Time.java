@@ -54,7 +54,8 @@ public class Time {
     }
 
     public void startMatch(){
-
+        isFirstTimerLoop = true;
+        runnable.run();
     }
     public void endMatch() {
         isTimerRunning = false;

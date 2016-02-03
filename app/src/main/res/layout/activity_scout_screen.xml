@@ -170,7 +170,6 @@
             android:text="Auto"
             android:id="@+id/btn_autoScreen"
             android:layout_marginLeft="247dp"
-            android:onClick="goAuto"
 
             />
     </LinearLayout>
