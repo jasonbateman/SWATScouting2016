@@ -73,35 +73,35 @@
             android:layout_width="117dp"
             android:layout_height="wrap_content"
             android:text="Cross"
-            android:id="@+id/button6"
+            android:id="@+id/btn_df1Cross"
             android:clickable="true" />
 
         <Button
             android:layout_width="117dp"
             android:layout_height="wrap_content"
             android:text="Cross"
-            android:id="@+id/button7"
+            android:id="@+id/btn_df2Cross"
             android:clickable="true" />
 
         <Button
             android:layout_width="117dp"
             android:layout_height="wrap_content"
             android:text="Cross"
-            android:id="@+id/button8"
+            android:id="@+id/btn_df3Cross"
             android:clickable="true" />
 
         <Button
             android:layout_width="117dp"
             android:layout_height="wrap_content"
             android:text="Cross"
-            android:id="@+id/button9"
+            android:id="@+id/btn_df4Cross"
             android:clickable="true" />
 
         <Button
             android:layout_width="117dp"
             android:layout_height="wrap_content"
             android:text="Cross"
-            android:id="@+id/button10"
+            android:id="@+id/btn_lowBarCross"
             android:clickable="true" />
     </LinearLayout>
 
@@ -116,21 +116,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="High Goal"
-            android:id="@+id/button2"
+            android:id="@+id/btn_highGoal"
             android:clickable="true" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Low Goal"
-            android:id="@+id/button"
+            android:id="@+id/btn_lowGoal"
             android:clickable="true" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hang"
-            android:id="@+id/button4"
+            android:text="Playing Defense"
+            android:id="@+id/btn_playDf"
             android:layout_marginLeft="100dp"
             android:clickable="true" />
 
@@ -145,15 +145,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Miss"
-            android:id="@+id/button3"
+            android:id="@+id/btn_miss"
             android:layout_marginLeft="126dp"
             android:clickable="true" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Defense"
-            android:id="@+id/button5"
+            android:text="Hanging"
+            android:id="@+id/btn_hang"
             android:layout_marginLeft="151dp"
             android:clickable="true" />
     </LinearLayout>
