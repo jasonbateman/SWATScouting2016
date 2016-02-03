@@ -1,5 +1,6 @@
 package com.example.batemanj16.swatscouting2016;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -10,4 +11,8 @@ public class scoutScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scout_screen);
     }
+    Intent intent = getIntent();
+
+
 }
+

@@ -17,36 +17,45 @@
         <Spinner
             android:layout_width="116dp"
             android:layout_height="55dp"
-            android:id="@+id/spinner"
+            android:id="@+id/spn_df1"
             android:spinnerMode="dropdown"
             android:clickable="true"
             android:background="#aa5454"
-            android:entries="@array/defenseItems"/>
+            android:entries="@array/defenseItems1"/>
 
         <Spinner
             android:layout_width="116dp"
             android:layout_height="55dp"
-            android:id="@+id/spinner2"
+            android:id="@+id/spn_df2"
             android:spinnerMode="dropdown"
             android:clickable="true"
-            android:background="#542c2c" />
+            android:background="#542c2c"
+            android:entries="@array/defenseItems2"/>
 
         <Spinner
             android:layout_width="116dp"
             android:layout_height="55dp"
-            android:id="@+id/spinner3"
+            android:id="@+id/spn_df3"
             android:background="#3f29c0"
-            android:spinnerMode="dropdown" />
+            android:spinnerMode="dropdown"
+            android:clickable="true"
+           android:entries="@array/defenseItems3" />
+
 
         <Spinner
             android:layout_width="116dp"
             android:layout_height="55dp"
-            android:id="@+id/spinner4" />
+            android:id="@+id/spn_df4"
+            android:clickable="true"
+            android:entries="@array/defenseItems4"
+            android:spinnerMode="dropdown"
+            android:background="#f22020" />
 
         <ImageView
             android:layout_width="116dp"
             android:layout_height="55dp"
-            android:id="@+id/imageView" />
+            android:id="@+id/imageView"
+            android:clickable="true" />
 
     </LinearLayout>
 

@@ -58,10 +58,15 @@ public class HomeScreen extends AppCompatActivity {
             f.mkdirs();
         }
 
-//fuck you clayton
+//TODO: fuck you clayton
 
     }
 
+    public void sendMessage(View view){
+        Intent intent = new Intent(this, scoutScreen.class);
+        startActivity(intent);
+
+    }
 
 
     }
