@@ -1,63 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    tools:context="com.example.batemanj16.swatscouting2016.scoutScreen"
-    android:weightSum="1"
-    android:visibility="visible"
-    android:orientation="vertical">
-
-
-    <LinearLayout
-        android:orientation="horizontal"
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="fill_parent"
-        android:layout_height="115dp">
-
-        <Spinner
-            android:layout_width="116dp"
-            android:layout_height="55dp"
-            android:id="@+id/spn_df1"
-            android:spinnerMode="dropdown"
-            android:clickable="true"
-            android:background="#aa5454"
-            android:entries="@array/defenseItems1"/>
-
-        <Spinner
-            android:layout_width="116dp"
-            android:layout_height="55dp"
-            android:id="@+id/spn_df2"
-            android:spinnerMode="dropdown"
-            android:clickable="true"
-            android:background="#542c2c"
-            android:entries="@array/defenseItems2"/>
-
-        <Spinner
-            android:layout_width="116dp"
-            android:layout_height="55dp"
-            android:id="@+id/spn_df3"
-            android:background="#3f29c0"
-            android:spinnerMode="dropdown"
-            android:clickable="true"
-           android:entries="@array/defenseItems3" />
+        android:layout_height="fill_parent"
+        tools:context="com.example.batemanj16.swatscouting2016.scoutScreen"
+        android:weightSum="1"
+        android:visibility="visible"
+        android:orientation="vertical">
 
 
-        <Spinner
-            android:layout_width="116dp"
-            android:layout_height="55dp"
-            android:id="@+id/spn_df4"
-            android:clickable="true"
-            android:entries="@array/defenseItems4"
-            android:spinnerMode="dropdown"
-            android:background="#f22020" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="116dp"
-            android:layout_height="55dp"
-            android:id="@+id/imageView"
-            android:clickable="true" />
+            <Button
+                android:layout_width="117dp"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button" />
 
-    </LinearLayout>
+            <Button
+                android:layout_width="117dp"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button2" />
 
-</LinearLayout>
+            <Button
+                android:layout_width="117dp"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button3" />
+
+            <Button
+                android:layout_width="117dp"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button4" />
+
+            <Button
+                android:layout_width="117dp"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="115dp">
+
+            <Spinner
+                android:layout_width="116dp"
+                android:layout_height="55dp"
+                android:id="@+id/spn_df1"
+                android:spinnerMode="dropdown"
+                android:clickable="true"
+                android:background="#aa5454"
+                android:entries="@array/defenseItems1"/>
+
+            <Spinner
+                android:layout_width="116dp"
+                android:layout_height="55dp"
+                android:id="@+id/spn_df2"
+                android:spinnerMode="dropdown"
+                android:clickable="true"
+                android:background="#542c2c"
+                android:entries="@array/defenseItems2"/>
+
+            <Spinner
+                android:layout_width="116dp"
+                android:layout_height="55dp"
+                android:id="@+id/spn_df3"
+                android:background="#3f29c0"
+                android:spinnerMode="dropdown"
+                android:clickable="true"
+                android:entries="@array/defenseItems3" />
+
+
+            <Spinner
+                android:layout_width="116dp"
+                android:layout_height="55dp"
+                android:id="@+id/spn_df4"
+                android:clickable="true"
+                android:entries="@array/defenseItems4"
+                android:spinnerMode="dropdown"
+                android:background="#f22020" />
+
+            <ImageView
+                android:layout_width="116dp"
+                android:layout_height="55dp"
+                android:id="@+id/imageView"
+                android:clickable="false"
+                android:icon="@mipmap/ic_launcher"
+
+        </LinearLayout>
+
+
 
