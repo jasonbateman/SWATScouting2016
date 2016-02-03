@@ -1,5 +1,7 @@
 package com.example.batemanj16.swatscouting2016;
 
+import android.os.Handler;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,6 +11,25 @@ import java.util.Date;
 public class Time {
 
     public static String startTime = "000000";
+    boolean isTimerRunning = false;
+    boolean isFirstTimerLoop = true;
+    Handler handler = new Handler();
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            //initialize the Timer
+            if (isFirstTimerLoop) {
+                isFirstTimerLoop = false;
+                isTimerRunning = true;
+                setStartTime();
+            }
+
+            if (isTimerRunning) {
+                handler.postDelayed(this, 500);
+
+            }
+        }
+    };
 
 
     public static String getCurrentTimeStamp(){
@@ -30,6 +51,9 @@ public class Time {
 
     public static void setStartTime(){
         startTime = getCurrentTimeStamp();
+    }
+    public void endMatch() {
+        isTimerRunning = false;
     }
 
 }

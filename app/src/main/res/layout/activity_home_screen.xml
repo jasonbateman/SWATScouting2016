@@ -11,37 +11,45 @@
     tools:context="com.example.batemanj16.swatscouting2016.HomeScreen"
     android:id="@+id/layout">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnWrite"
-        android:text="Current Time" />
 
-    <EditText
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtField"
-        android:layout_marginTop="15dp" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="SWAT Scouting 2k16"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal" />
 
-    <EditText
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtTimeElapsed"
-        android:layout_marginTop="15dp" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Reset Time "
-        android:id="@+id/btnRead"
         android:layout_gravity="center_horizontal"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Match Scoring"
-        android:id="@+id/btnChangeScreen"
-        android:onClick="sendMessage"
-        />
+        android:layout_marginTop="25dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scouting!!!!!"
+            android:id="@+id/btn_scout"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="f u clytn"
+            android:id="@+id/btn_instruct"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Export!"
+            android:id="@+id/btn_export"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
 
 </LinearLayout>
