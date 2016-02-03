@@ -15,6 +15,14 @@ public class scoutScreen extends AppCompatActivity {
 
     boolean portcullis = false;
     boolean cheval = false;
+    boolean moat = false;
+    boolean ramparts = false;
+    boolean draw = false;
+    boolean sally = false;
+    boolean rock = false;
+    boolean rough = false;
+
+    boolean toAutoScreen = false;
 
     Handler handler = new Handler();
     Runnable setUpListener = new Runnable(){
@@ -23,13 +31,14 @@ public class scoutScreen extends AppCompatActivity {
             //checking to see if each defense is represented
             portcullis = ((spn_df1.getSelectedItem().toString()=="Portcullis")||(spn_df2.getSelectedItem().toString()=="Portcullis")||(spn_df3.getSelectedItem().toString()=="Portcullis")||(spn_df4.getSelectedItem().toString()=="Portcullis"));
             cheval = ((spn_df1.getSelectedItem().toString()=="Cheval de Frise")||(spn_df2.getSelectedItem().toString()=="Cheval de Frise")||(spn_df3.getSelectedItem().toString()=="Cheval de Frise")||(spn_df4.getSelectedItem().toString()=="Cheval de Frise"));
-            portcullis = ((spn_df1.getSelectedItem().toString()=="Portcullis")||(spn_df2.getSelectedItem().toString()=="Portcullis")||(spn_df3.getSelectedItem().toString()=="Portcullis")||(spn_df4.getSelectedItem().toString()=="Portcullis"));
-            portcullis = ((spn_df1.getSelectedItem().toString()=="Portcullis")||(spn_df2.getSelectedItem().toString()=="Portcullis")||(spn_df3.getSelectedItem().toString()=="Portcullis")||(spn_df4.getSelectedItem().toString()=="Portcullis"));
-            portcullis = ((spn_df1.getSelectedItem().toString()=="Portcullis")||(spn_df2.getSelectedItem().toString()=="Portcullis")||(spn_df3.getSelectedItem().toString()=="Portcullis")||(spn_df4.getSelectedItem().toString()=="Portcullis"));
-            portcullis = ((spn_df1.getSelectedItem().toString()=="Portcullis")||(spn_df2.getSelectedItem().toString()=="Portcullis")||(spn_df3.getSelectedItem().toString()=="Portcullis")||(spn_df4.getSelectedItem().toString()=="Portcullis"));
-            portcullis = ((spn_df1.getSelectedItem().toString()=="Portcullis")||(spn_df2.getSelectedItem().toString()=="Portcullis")||(spn_df3.getSelectedItem().toString()=="Portcullis")||(spn_df4.getSelectedItem().toString()=="Portcullis"));
+            moat = ((spn_df1.getSelectedItem().toString()=="Moat")||(spn_df2.getSelectedItem().toString()=="Moat")||(spn_df3.getSelectedItem().toString()=="Moat")||(spn_df4.getSelectedItem().toString()=="Moat"));
+            ramparts = ((spn_df1.getSelectedItem().toString()=="Ramparts")||(spn_df2.getSelectedItem().toString()=="Ramparts")||(spn_df3.getSelectedItem().toString()=="Ramparts")||(spn_df4.getSelectedItem().toString()=="Ramparts"));
+            draw = ((spn_df1.getSelectedItem().toString()=="Drawbridge")||(spn_df2.getSelectedItem().toString()=="Drawbridge")||(spn_df3.getSelectedItem().toString()=="Drawbridge")||(spn_df4.getSelectedItem().toString()=="Drawbridge"));
+            sally = ((spn_df1.getSelectedItem().toString()=="Sally Port")||(spn_df2.getSelectedItem().toString()=="Sally Port")||(spn_df3.getSelectedItem().toString()=="Sally Port")||(spn_df4.getSelectedItem().toString()=="Sally Port"));
+            rock = ((spn_df1.getSelectedItem().toString()=="Rock Wall")||(spn_df2.getSelectedItem().toString()=="Rock Wall")||(spn_df3.getSelectedItem().toString()=="Rock Wall")||(spn_df4.getSelectedItem().toString()=="Rock Wall"));
+            rough = ((spn_df1.getSelectedItem().toString()=="Rough Terrain")||(spn_df2.getSelectedItem().toString()=="Rough Terrain")||(spn_df3.getSelectedItem().toString()=="Rough Terrain")||(spn_df4.getSelectedItem().toString()=="Rough Terrain"));
 
-            if ((portcullis||cheval)&&(moat||ramparts)&&(draw||sally)&&(rough||rock))
+            if (((portcullis||cheval)&&(moat||ramparts)&&(draw||sally)&&(rough||rock))&&(toAutoScreen))
             {
 
             }
@@ -52,10 +61,9 @@ public class scoutScreen extends AppCompatActivity {
 
 
     //Intent that send you to Auto Screen
-    public void goAuto (View view)
+    public void goAuto ()
     {
-        Intent intent = new Intent(this, AutoScouting.class);
-    startActivity(intent);
+        toAutoScreen = true;
     }
 
 
