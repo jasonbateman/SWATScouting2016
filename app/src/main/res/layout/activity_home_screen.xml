@@ -40,6 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Match Scoring"
-        android:id="@+id/btnChangeScreen"/>
+        android:id="@+id/btnChangeScreen"
+        android:onClick="sendMessage"
+        />
 
 </LinearLayout>

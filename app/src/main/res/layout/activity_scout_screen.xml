@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context="com.example.batemanj16.swatscouting2016.scoutScreen"
     android:weightSum="1"
-    android:visibility="invisible">
+    android:visibility="visible"
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></LinearLayout>
+        android:layout_width="fill_parent"
+        android:layout_height="115dp">
+
+        <Spinner
+            android:layout_width="116dp"
+            android:layout_height="55dp"
+            android:id="@+id/spinner"
+            android:spinnerMode="dropdown"
+            android:clickable="true"
+            android:background="#aa5454"
+            android:entries="@array/defenseItems"/>
+
+        <Spinner
+            android:layout_width="116dp"
+            android:layout_height="55dp"
+            android:id="@+id/spinner2"
+            android:spinnerMode="dropdown"
+            android:clickable="true"
+            android:background="#542c2c" />
+
+        <Spinner
+            android:layout_width="116dp"
+            android:layout_height="55dp"
+            android:id="@+id/spinner3"
+            android:background="#3f29c0"
+            android:spinnerMode="dropdown" />
+
+        <Spinner
+            android:layout_width="116dp"
+            android:layout_height="55dp"
+            android:id="@+id/spinner4" />
+
+        <ImageView
+            android:layout_width="116dp"
+            android:layout_height="55dp"
+            android:id="@+id/imageView" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
