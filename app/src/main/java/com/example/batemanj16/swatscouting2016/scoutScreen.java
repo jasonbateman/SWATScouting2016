@@ -35,7 +35,7 @@ public class scoutScreen extends AppCompatActivity {
         final Spinner spn_df3 = (Spinner) findViewById(R.id.spn_df3);
         final Spinner spn_df4 = (Spinner) findViewById(R.id.spn_df4);
         final Button btn_autoScreen = (Button) findViewById(R.id.btn_autoScreen);
-
+//yea
         final Runnable setUpListener = new Runnable(){
             @Override
             public void run() {
