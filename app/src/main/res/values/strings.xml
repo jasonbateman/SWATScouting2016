@@ -1,48 +1,57 @@
 <resources>
     <string name="app_name">SWATScouting 2016</string>
 
+    <string name="portcullis">Portcullis</string>
+    <string name="cheval">Cheval De Frise</string>
+    <string name="moat">Moat</string>
+    <string name="ramparts">Ramparts</string>
+    <string name="draw">Drawbridge</string>
+    <string name="sally">Sally Poart</string>
+    <string name="rock">Rock Wall</string>
+    <string name="rough">Rough Terrain</string>
+
     <string-array name="defenseItems1">
-        <item>Portcullis</item>
-        <item>Cheval de Frise</item>
-        <item>Moat</item>
-        <item>Ramparts</item>
-        <item>Drawbridge</item>
-        <item>Sally Port</item>
-        <item>Rock Wall</item>
-        <item>Rough Terrain</item>
+        <item>@string/portcullis</item>
+        <item>@string/cheval</item>
+        <item>@string/moat</item>
+        <item>@string/ramparts</item>
+        <item>@string/draw</item>
+        <item>@string/sally</item>
+        <item>@string/rock</item>
+        <item>@string/rough</item>
     </string-array>
 
     <string-array name="defenseItems2">
-        <item>Portcullis</item>
-        <item>Cheval de Frise</item>
-        <item>Moat</item>
-        <item>Ramparts</item>
-        <item>Drawbridge</item>
-        <item>Sally Port</item>
-        <item>Rock Wall</item>
-        <item>Rough Terrain</item>
+        <item>@string/portcullis</item>
+        <item>@string/cheval</item>
+        <item>@string/moat</item>
+        <item>@string/ramparts</item>
+        <item>@string/draw</item>
+        <item>@string/sally</item>
+        <item>@string/rock</item>
+        <item>@string/rough</item>
     </string-array>
 
     <string-array name="defenseItems3">
-        <item>Portcullis</item>
-        <item>Cheval de Frise</item>
-        <item>Moat</item>
-        <item>Ramparts</item>
-        <item>Drawbridge</item>
-        <item>Sally Port</item>
-        <item>Rock Wall</item>
-        <item>Rough Terrain</item>
+        <item>@string/portcullis</item>
+        <item>@string/cheval</item>
+        <item>@string/moat</item>
+        <item>@string/ramparts</item>
+        <item>@string/draw</item>
+        <item>@string/sally</item>
+        <item>@string/rock</item>
+        <item>@string/rough</item>
     </string-array>
 
     <string-array name="defenseItems4">
-        <item>Portcullis</item>
-        <item>Cheval de Frise</item>
-        <item>Moat</item>
-        <item>Ramparts</item>
-        <item>Drawbridge</item>
-        <item>Sally Port</item>
-        <item>Rock Wall</item>
-        <item>Rough Terrain</item>
+        <item>@string/portcullis</item>
+        <item>@string/cheval</item>
+        <item>@string/moat</item>
+        <item>@string/ramparts</item>
+        <item>@string/draw</item>
+        <item>@string/sally</item>
+        <item>@string/rock</item>
+        <item>@string/rough</item>
     </string-array>
 
 
