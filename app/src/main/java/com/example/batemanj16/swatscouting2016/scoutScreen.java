@@ -36,37 +36,70 @@ public class scoutScreen extends AppCompatActivity {
         final Spinner spn_df4 = (Spinner) findViewById(R.id.spn_df4);
         final Button btn_autoScreen = (Button) findViewById(R.id.btn_autoScreen);
 
-        Runnable setUpListener = new Runnable(){
+        final Runnable setUpListener = new Runnable(){
             @Override
             public void run() {
                 Log.d("RUNNABLE RUNNING", "The runnable is running");
                 //checking to see if each defense is represented
-                portcullis = ((spn_df1.getSelectedItem().toString()=="Portcullis")||(spn_df2.getSelectedItem().toString()=="Portcullis")||(spn_df3.getSelectedItem().toString()=="Portcullis")||(spn_df4.getSelectedItem().toString()=="Portcullis"));
+                portcullis = ((spn_df1.getSelectedItem().toString()==getString(R.string.portcullis))||
+                        (spn_df2.getSelectedItem().toString()==getString(R.string.portcullis))||
+                        (spn_df3.getSelectedItem().toString()==getString(R.string.portcullis))||
+                        (spn_df4.getSelectedItem().toString()==getString(R.string.portcullis)));
 
-                cheval = ((spn_df1.getSelectedItem().toString()==getString(R.string.cheval))||(spn_df2.getSelectedItem().toString()==getString(R.string.cheval))||(spn_df3.getSelectedItem().toString()==getString(R.string.cheval))||(spn_df4.getSelectedItem().toString()==getString(R.string.cheval)));
+                cheval = ((spn_df1.getSelectedItem().toString()==getString(R.string.cheval))||
+                        (spn_df2.getSelectedItem().toString()==getString(R.string.cheval))||
+                        (spn_df3.getSelectedItem().toString()==getString(R.string.cheval))||
+                        (spn_df4.getSelectedItem().toString()==getString(R.string.cheval)));
 
-                moat = ((spn_df1.getSelectedItem().toString()=="Moat")||(spn_df2.getSelectedItem().toString()=="Moat")||(spn_df3.getSelectedItem().toString()=="Moat")||(spn_df4.getSelectedItem().toString()=="Moat"));
+                moat = ((spn_df1.getSelectedItem().toString()==getString(R.string.moat))||
+                        (spn_df2.getSelectedItem().toString()==getString(R.string.moat))||
+                        (spn_df3.getSelectedItem().toString()==getString(R.string.moat))||
+                        (spn_df4.getSelectedItem().toString()==getString(R.string.moat)));
 
-                ramparts = ((spn_df1.getSelectedItem().toString()=="Ramparts")||(spn_df2.getSelectedItem().toString()=="Ramparts")||(spn_df3.getSelectedItem().toString()=="Ramparts")||(spn_df4.getSelectedItem().toString()=="Ramparts"));
+                ramparts = ((spn_df1.getSelectedItem().toString()==getString(R.string.ramparts))||
+                        (spn_df2.getSelectedItem().toString()==getString(R.string.ramparts))||
+                        (spn_df3.getSelectedItem().toString()==getString(R.string.ramparts))||
+                        (spn_df4.getSelectedItem().toString()==getString(R.string.ramparts)));
 
-                draw = ((spn_df1.getSelectedItem().toString()=="Drawbridge")||(spn_df2.getSelectedItem().toString()=="Drawbridge")||(spn_df3.getSelectedItem().toString()=="Drawbridge")||(spn_df4.getSelectedItem().toString()=="Drawbridge"));
+                draw = ((spn_df1.getSelectedItem().toString()==getString(R.string.draw))||
+                        (spn_df2.getSelectedItem().toString()==getString(R.string.draw))||
+                        (spn_df3.getSelectedItem().toString()==getString(R.string.draw))||
+                        (spn_df4.getSelectedItem().toString()==getString(R.string.draw)));
 
-                sally = ((spn_df1.getSelectedItem().toString()=="Sally Port")||(spn_df2.getSelectedItem().toString()=="Sally Port")||(spn_df3.getSelectedItem().toString()=="Sally Port")||(spn_df4.getSelectedItem().toString()=="Sally Port"));
+                sally = ((spn_df1.getSelectedItem().toString()==getString(R.string.sally))||
+                        (spn_df2.getSelectedItem().toString()==getString(R.string.sally))||
+                        (spn_df3.getSelectedItem().toString()==getString(R.string.sally))||
+                        (spn_df4.getSelectedItem().toString()==getString(R.string.sally)));
 
-                rock = ((spn_df1.getSelectedItem().toString()=="Rock Wall")||(spn_df2.getSelectedItem().toString()=="Rock Wall")||(spn_df3.getSelectedItem().toString()=="Rock Wall")||(spn_df4.getSelectedItem().toString()=="Rock Wall"));
+                rock = ((spn_df1.getSelectedItem().toString()==getString(R.string.rock))||
+                        (spn_df2.getSelectedItem().toString()==getString(R.string.rock))||
+                        (spn_df3.getSelectedItem().toString()==getString(R.string.rock))||
+                        (spn_df4.getSelectedItem().toString()==getString(R.string.rock)));
 
-                rough = ((spn_df1.getSelectedItem().toString()=="Rough Terrain")||(spn_df2.getSelectedItem().toString()=="Rough Terrain")||(spn_df3.getSelectedItem().toString()=="Rough Terrain")||(spn_df4.getSelectedItem().toString()=="Rough Terrain"));
+                rough = ((spn_df1.getSelectedItem().toString()==getString(R.string.rough))||
+                        (spn_df2.getSelectedItem().toString()==getString(R.string.rough))||
+                        (spn_df3.getSelectedItem().toString()==getString(R.string.rough))||
+                        (spn_df4.getSelectedItem().toString()==getString(R.string.rough)));
 
 
                 handler.postDelayed(this, 500);
             }
+
+
         };
+
         btn_autoScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (((portcullis||cheval)&&(moat||ramparts)&&(draw||sally)&&(rough||rock))&&(toAutoScreen))
+
+
+                setUpListener.run();
+
+
+                if (((portcullis||cheval)&&(moat||ramparts)&&(draw||sally)&&(rough||rock))/*&&(toAutoScreen)*/)
                 {
                     toAutoScreen = false;
+                    Log.d("Scout","Going to Auto Screen");
                     Intent intent = new Intent(getApplicationContext(), AutoScouting.class);
                     startActivity(intent);
                 }
