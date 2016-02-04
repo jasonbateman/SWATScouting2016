@@ -40,6 +40,7 @@ public class scoutScreen extends AppCompatActivity {
             @Override
             public void run() {
                 Log.d("RUNNABLE RUNNING", "The runnable is running");
+                logBool= ((portcullis||cheval)&&(moat||ramparts)&&(draw||sally)&&(rough||rock));
                 //checking to see if each defense is represented
                 portcullis = ((spn_df1.getSelectedItem().toString()=="Portcullis")||(spn_df2.getSelectedItem().toString()=="Portcullis")||(spn_df3.getSelectedItem().toString()=="Portcullis")||(spn_df4.getSelectedItem().toString()=="Portcullis"));
 
@@ -56,7 +57,7 @@ public class scoutScreen extends AppCompatActivity {
                 rock = ((spn_df1.getSelectedItem().toString()=="Rock Wall")||(spn_df2.getSelectedItem().toString()=="Rock Wall")||(spn_df3.getSelectedItem().toString()=="Rock Wall")||(spn_df4.getSelectedItem().toString()=="Rock Wall"));
 
                 rough = ((spn_df1.getSelectedItem().toString()=="Rough Terrain")||(spn_df2.getSelectedItem().toString()=="Rough Terrain")||(spn_df3.getSelectedItem().toString()=="Rough Terrain")||(spn_df4.getSelectedItem().toString()=="Rough Terrain"));
-
+                Log.d("Valid?", logBool.toString() );
 
                 handler.postDelayed(this, 500);
             }
