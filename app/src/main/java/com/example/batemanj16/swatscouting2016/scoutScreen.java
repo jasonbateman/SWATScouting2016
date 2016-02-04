@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 public class scoutScreen extends AppCompatActivity {
+    Time time;
     Boolean portcullis = false;
     Boolean cheval = false;
     Boolean moat = false;
@@ -113,9 +114,12 @@ public class scoutScreen extends AppCompatActivity {
     }
     Intent intent = getIntent();
 
-
-    //Intent that send you to Auto Screen
-
-
+    public void endMatch(Match match){
+        time.stopTimer();
+        Log.d("Match", "Stopping Timer");
+        Intent intent = new Intent(this, HomeScreen.class);
+        Log.d("Match", "Switching Activities");
+        startActivity(intent);
+    }
 }
 

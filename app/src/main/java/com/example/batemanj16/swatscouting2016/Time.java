@@ -1,6 +1,7 @@
 package com.example.batemanj16.swatscouting2016;
 
 import android.os.Handler;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,9 +11,10 @@ import java.util.Date;
  */
 public class Time {
 
+
     public static String startTime = "000000";
-    boolean isTimerRunning = false;
-    boolean isFirstTimerLoop = true;
+    public Boolean isTimerRunning = false;
+    public Boolean isFirstTimerLoop = true;
     Handler handler = new Handler();
     Runnable runnable = new Runnable() {
         @Override
@@ -22,7 +24,10 @@ public class Time {
                 isFirstTimerLoop = false;
                 isTimerRunning = true;
                 setStartTime();
+                Log.d("Timer", "Started!");
             }
+
+
 
             if (isTimerRunning) {
                 handler.postDelayed(this, 500);
@@ -44,8 +49,8 @@ public class Time {
         SimpleDateFormat newTimeFormat = new SimpleDateFormat("hhmmss");
         String newTime = newTimeFormat.format(new Date());
         int timeElapsed = Integer.parseInt(newTime.toString()) - Integer.parseInt(startTime.toString());
-        String test =  Integer.toString(timeElapsed);
-        return test;
+        Integer.toString(timeElapsed);
+        return Integer.toString(timeElapsed);
 
     }
 
@@ -53,12 +58,29 @@ public class Time {
         startTime = getCurrentTimeStamp();
     }
 
-    public void startMatch(){
+    public void startMatch(DBHandler dbHandler, String teamNumber, String matchNumber, Boolean defense){
         isFirstTimerLoop = true;
         runnable.run();
+
+        Match match = new Match(dbHandler.getMatchesCount(),
+                Integer.parseInt(matchNumber),
+                Integer.parseInt(teamNumber),
+                defense,
+                "",
+                100,
+                0,
+                false,
+                0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
+        );
+        dbHandler.createMatch(match);
+
     }
-    public void endMatch() {
+
+    public void stopTimer() {
         isTimerRunning = false;
+
+
     }
 
 }

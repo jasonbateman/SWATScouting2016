@@ -58,7 +58,6 @@ public class HomeScreen extends AppCompatActivity {
             f.mkdirs();
         }
 
-//TODO: fuck you clayton
 
     }
 
@@ -68,6 +67,8 @@ public class HomeScreen extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+
 
 }
 
