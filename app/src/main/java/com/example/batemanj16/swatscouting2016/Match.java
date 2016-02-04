@@ -82,7 +82,6 @@ public class Match {
     public int getNumRock(){return _numRock;}
     public int getNumLow(){return _numLow;}
 
-    public void set_id(int id_new){_id = id_new;}
     public void set_matchNum(int matchNum_new){_matchNum = matchNum_new;}
     public void set_teamNum(int teamNum_new){_teamNum = teamNum_new;}
     public void set_defense(boolean defense_new){_defense = defense_new;}
