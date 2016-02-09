@@ -21,8 +21,13 @@ public class scoutScreen extends AppCompatActivity {
     Boolean rough = false;
     Boolean logBool = false;
 
-    boolean toAutoScreen = false;
+    Integer spn1 = 0;
+    Integer spn2 = 2;
+    Integer spn3 = 4;
+    Integer spn4 = 6;
 
+    Boolean firstLoop = true;
+    boolean toAutoScreen = false;
     Handler handler = new Handler();
 
     @Override
@@ -30,60 +35,91 @@ public class scoutScreen extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scout_screen);
-
         final Spinner spn_df1 = (Spinner) findViewById(R.id.spn_df1);
         final Spinner spn_df2 = (Spinner) findViewById(R.id.spn_df2);
         final Spinner spn_df3 = (Spinner) findViewById(R.id.spn_df3);
         final Spinner spn_df4 = (Spinner) findViewById(R.id.spn_df4);
+
         final Button btn_autoScreen = (Button) findViewById(R.id.btn_autoScreen);
-//yea
+        /*
+        For the Spinners:
+        0 = Portcullis
+        1 = Cheval
+        2 = Moat
+        3 = Ramparts
+        4 = Drawbridge
+        5 = Sally Port
+        6 = Rock Wall
+        7 = Rough Terrain
+         */
         final Runnable setUpListener = new Runnable(){
             @Override
             public void run() {
                 Log.d("RUNNABLE RUNNING", "The runnable is running");
                 //checking to see if each defense is represented
-                portcullis = ((spn_df1.getSelectedItem().toString()==getString(R.string.portcullis))||
-                        (spn_df2.getSelectedItem().toString()==getString(R.string.portcullis))||
-                        (spn_df3.getSelectedItem().toString()==getString(R.string.portcullis))||
-                        (spn_df4.getSelectedItem().toString()==getString(R.string.portcullis)));
+                Log.d("Loop", firstLoop.toString());
+                Bundle extras = getIntent().getExtras();
 
-                cheval = ((spn_df1.getSelectedItem().toString()==getString(R.string.cheval))||
-                        (spn_df2.getSelectedItem().toString()==getString(R.string.cheval))||
-                        (spn_df3.getSelectedItem().toString()==getString(R.string.cheval))||
-                        (spn_df4.getSelectedItem().toString()==getString(R.string.cheval)));
+                if (firstLoop){
+                    spn_df1.setSelection(spn1);
+                    spn_df2.setSelection(spn2);
+                    spn_df3.setSelection(spn3);
+                    spn_df4.setSelection(spn4);
+                    Log.d("spn", " FIRST LOOP! 1 = " + spn4.toString());
+                    Log.d("spn_df4", " FIRST LOOP = " + spn_df4.getSelectedItem().toString());
+                    firstLoop = false;
+                }
+                portcullis = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.portcullis)))||
+                        (spn_df2.getSelectedItem().toString().equals(getString(R.string.portcullis)))||
+                        (spn_df3.getSelectedItem().toString().equals(getString(R.string.portcullis)))||
+                        (spn_df4.getSelectedItem().toString().equals(getString(R.string.portcullis))));
 
-                moat = ((spn_df1.getSelectedItem().toString()==getString(R.string.moat))||
-                        (spn_df2.getSelectedItem().toString()==getString(R.string.moat))||
-                        (spn_df3.getSelectedItem().toString()==getString(R.string.moat))||
-                        (spn_df4.getSelectedItem().toString()==getString(R.string.moat)));
+                cheval = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.cheval)))||
+                        (spn_df2.getSelectedItem().toString().equals(getString(R.string.cheval)))||
+                        (spn_df3.getSelectedItem().toString().equals(getString(R.string.cheval)))||
+                        (spn_df4.getSelectedItem().toString().equals(getString(R.string.cheval))));
 
-                ramparts = ((spn_df1.getSelectedItem().toString()==getString(R.string.ramparts))||
-                        (spn_df2.getSelectedItem().toString()==getString(R.string.ramparts))||
-                        (spn_df3.getSelectedItem().toString()==getString(R.string.ramparts))||
-                        (spn_df4.getSelectedItem().toString()==getString(R.string.ramparts)));
+                moat = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.moat)))||
+                        (spn_df2.getSelectedItem().toString().equals(getString(R.string.moat)))||
+                        (spn_df3.getSelectedItem().toString().equals(getString(R.string.moat)))||
+                        (spn_df4.getSelectedItem().toString().equals(getString(R.string.moat))));
 
-                draw = ((spn_df1.getSelectedItem().toString()==getString(R.string.draw))||
-                        (spn_df2.getSelectedItem().toString()==getString(R.string.draw))||
-                        (spn_df3.getSelectedItem().toString()==getString(R.string.draw))||
-                        (spn_df4.getSelectedItem().toString()==getString(R.string.draw)));
+                ramparts = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.ramparts)))||
+                        (spn_df2.getSelectedItem().toString().equals(getString(R.string.ramparts)))||
+                        (spn_df3.getSelectedItem().toString().equals(getString(R.string.ramparts)))||
+                        (spn_df4.getSelectedItem().toString().equals(getString(R.string.ramparts))));
 
-                sally = ((spn_df1.getSelectedItem().toString()==getString(R.string.sally))||
-                        (spn_df2.getSelectedItem().toString()==getString(R.string.sally))||
-                        (spn_df3.getSelectedItem().toString()==getString(R.string.sally))||
-                        (spn_df4.getSelectedItem().toString()==getString(R.string.sally)));
+                draw = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.draw)))||
+                        (spn_df2.getSelectedItem().toString().equals(getString(R.string.draw)))||
+                        (spn_df3.getSelectedItem().toString().equals(getString(R.string.draw)))||
+                        (spn_df4.getSelectedItem().toString().equals(getString(R.string.draw))));
 
-                rock = ((spn_df1.getSelectedItem().toString()==getString(R.string.rock))||
-                        (spn_df2.getSelectedItem().toString()==getString(R.string.rock))||
-                        (spn_df3.getSelectedItem().toString()==getString(R.string.rock))||
-                        (spn_df4.getSelectedItem().toString()==getString(R.string.rock)));
+                sally = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.sally)))||
+                        (spn_df2.getSelectedItem().toString().equals(getString(R.string.sally)))||
+                        (spn_df3.getSelectedItem().toString().equals(getString(R.string.sally)))||
+                        (spn_df4.getSelectedItem().toString().equals(getString(R.string.sally))));
 
-                rough = ((spn_df1.getSelectedItem().toString()==getString(R.string.rough))||
-                        (spn_df2.getSelectedItem().toString()==getString(R.string.rough))||
-                        (spn_df3.getSelectedItem().toString()==getString(R.string.rough))||
-                        (spn_df4.getSelectedItem().toString()==getString(R.string.rough)));
+                rock = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.rock)))||
+                        (spn_df2.getSelectedItem().toString().equals(getString(R.string.rock)))||
+                        (spn_df3.getSelectedItem().toString().equals(getString(R.string.rock)))||
+                        (spn_df4.getSelectedItem().toString().equals(getString(R.string.rock))));
 
+                rough = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.rough)))||
+                        (spn_df2.getSelectedItem().toString().equals(getString(R.string.rough)))||
+                        (spn_df3.getSelectedItem().toString().equals(getString(R.string.rough)))||
+                        (spn_df4.getSelectedItem().toString().equals(getString(R.string.rough))));
+                Log.d("spn", " FIRST LOOP! 1 = " + spn4.toString());
+                Log.d("spn_df4", " FIRST LOOP = " + spn_df4.getSelectedItem().toString());
 
-                handler.postDelayed(this, 500);
+                if (!toAutoScreen) {
+                    handler.postDelayed(this, 500);
+
+                }
+            }
+
+            public void stop(){
+                //end here
+
             }
 
 
@@ -96,14 +132,16 @@ public class scoutScreen extends AppCompatActivity {
 
                 setUpListener.run();
 
-
-                if (((portcullis||cheval)&&(moat||ramparts)&&(draw||sally)&&(rough||rock))/*&&(toAutoScreen)*/)
+                if (((portcullis||cheval)&&(moat||ramparts)&&(draw||sally)&&(rough||rock)))
                 {
-                    toAutoScreen = false;
+                    toAutoScreen = true;
+                    setUpListener.stop();
                     Log.d("Scout","Going to Auto Screen");
                     Intent intent = new Intent(getApplicationContext(), AutoScouting.class);
                     startActivity(intent);
                 }
+
+
             }
         });
         setUpListener.run();
@@ -112,7 +150,41 @@ public class scoutScreen extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        final Spinner spn_df1 = (Spinner) findViewById(R.id.spn_df1);
+        final Spinner spn_df2 = (Spinner) findViewById(R.id.spn_df2);
+        final Spinner spn_df3 = (Spinner) findViewById(R.id.spn_df3);
+        final Spinner spn_df4 = (Spinner) findViewById(R.id.spn_df4);
+
+        spn1 = (int) spn_df1.getSelectedItemId();
+        spn2 = (int) spn_df2.getSelectedItemId();
+        spn3 = (int) spn_df3.getSelectedItemId();
+        spn4 = (int) spn_df4.getSelectedItemId();
+
+
+
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        final Spinner spn_df1 = (Spinner) findViewById(R.id.spn_df1);
+        final Spinner spn_df2 = (Spinner) findViewById(R.id.spn_df2);
+        final Spinner spn_df3 = (Spinner) findViewById(R.id.spn_df3);
+        final Spinner spn_df4 = (Spinner) findViewById(R.id.spn_df4);
+
+        spn_df1.setSelection(spn1);
+        spn_df2.setSelection(spn2);
+        spn_df3.setSelection(spn3);
+        spn_df4.setSelection(spn4);
+    }
+
     Intent intent = getIntent();
+
+
 
     public void endMatch(Match match){
         time.stopTimer();
