@@ -73,14 +73,14 @@
             android:layout_width="117dp"
             android:layout_height="wrap_content"
             android:text="Cross"
-            android:id="@+id/btn_df1Cross"
+            android:id="@+id/btn_df5Cross"
             android:clickable="true" />
 
         <Button
             android:layout_width="117dp"
             android:layout_height="wrap_content"
             android:text="Cross"
-            android:id="@+id/btn_df2Cross"
+            android:id="@+id/btn_df4Cross"
             android:clickable="true" />
 
         <Button
@@ -94,7 +94,7 @@
             android:layout_width="117dp"
             android:layout_height="wrap_content"
             android:text="Cross"
-            android:id="@+id/btn_df4Cross"
+            android:id="@+id/btn_df2Cross"
             android:clickable="true" />
 
         <Button
