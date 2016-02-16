@@ -38,6 +38,7 @@ public class scoutScreen extends AppCompatActivity {
     boolean def3Crossing;
     boolean def4Crossing;
     boolean def5Crossing;
+
     double startTime;
     double timeToCross;
     double averageTimeToCross_lowBar;
@@ -185,7 +186,6 @@ public class scoutScreen extends AppCompatActivity {
         btn_lowBarCross.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 //TODO make sure that it only registers as 'crossing' if no other defense is being crossed
                 if(!lowBarCrossing && !def2Crossing && !def3Crossing && !def4Crossing && !def5Crossing){
                     //you're not yet crossing a defense
@@ -201,6 +201,7 @@ public class scoutScreen extends AppCompatActivity {
 
                     //TODO add average times to cross by averaging ALL items in each timeToCross list
                     timeToCrossList_lowBar.add(timeToCross);
+                    averageTimeToCross_lowBar  = (averageTimeToCross_lowBar*(timesCrossed_lowBar-1)+ timeToCross)/timesCrossed_lowBar;
 
                 }
             }
@@ -216,6 +217,7 @@ public class scoutScreen extends AppCompatActivity {
                     timesCrossed_def2++;
                     timeToCross = System.currentTimeMillis() - startTime;
                     timeToCrossList_def2.add(timeToCross);
+                    averageTimeToCross_def2 = (averageTimeToCross_def2*(timesCrossed_def2-1)+timeToCross)/timesCrossed_def2;
                 }
 
             }
@@ -231,6 +233,7 @@ public class scoutScreen extends AppCompatActivity {
                     timesCrossed_def3++;
                     timeToCross = System.currentTimeMillis() - startTime;
                     timeToCrossList_def3.add(timeToCross);
+                    averageTimeToCross_def3 = (averageTimeToCross_def3*(timesCrossed_def3-1)+timeToCross)/timesCrossed_def3;
                 }
 
 
@@ -251,6 +254,7 @@ public class scoutScreen extends AppCompatActivity {
                     timesCrossed_def4++;
                     timeToCross = System.currentTimeMillis() - startTime;
                     timeToCrossList_def4.add(timeToCross);
+                    averageTimeToCross_def4 = (averageTimeToCross_def4*(timesCrossed_def4-1)+timeToCross)/timesCrossed_def4;
                 }
 
             }
@@ -266,23 +270,14 @@ public class scoutScreen extends AppCompatActivity {
                     timesCrossed_def5++;
                     timeToCross = System.currentTimeMillis() - startTime;
                     timeToCrossList_def5.add(timeToCross);
+                    averageTimeToCross_def5 = (averageTimeToCross_def5*(timesCrossed_def5-1)+timeToCross)/timesCrossed_def5;
 
                 }
-
-
-
-
-
 
             }
         });
 
-
         setUpListener.run();
-
-
-
-
     }
 
     @Override
@@ -317,8 +312,6 @@ public class scoutScreen extends AppCompatActivity {
     }
 
     Intent intent = getIntent();
-
-
 
     public void endMatch(Match match){
         time.stopTimer();
