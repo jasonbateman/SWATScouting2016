@@ -27,7 +27,7 @@ public class Match {
                  int numSally,
                  int numRough,
                  int numRock,
-                 int numLow,
+                 int numLow
                  ){
 
 
