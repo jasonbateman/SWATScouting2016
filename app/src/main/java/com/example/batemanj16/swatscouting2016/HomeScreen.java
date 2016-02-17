@@ -74,7 +74,7 @@ public class HomeScreen extends AppCompatActivity {
 
     public void btn2ScoutScreen(View view) {
         Intent intent = new Intent(this, scoutScreen.class);
-
+        Log.d("Home Screen Actions", "Started the scouting activity");
         startActivity(intent);
 
     }

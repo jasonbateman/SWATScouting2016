@@ -25,11 +25,12 @@ public class scoutScreen extends AppCompatActivity {
     Boolean rock = false;
     Boolean rough = false;
     Boolean logBool = false;
+    Boolean defense = false;
 
-    Integer spn1 = 0;
-    Integer spn2 = 2;
-    Integer spn3 = 4;
-    Integer spn4 = 6;
+    Integer spn1;
+    Integer spn2;
+    Integer spn3;
+    Integer spn4;
 
     Boolean firstLoop = true;
     Boolean allowedToRun = true;
@@ -94,9 +95,12 @@ public class scoutScreen extends AppCompatActivity {
         final Button btn_highGoal = (Button) findViewById(R.id.btn_highGoal);
         final Button btn_lowGoal = (Button) findViewById(R.id.btn_lowGoal);
         final Button btn_miss = (Button) findViewById(R.id.btn_miss);
+        final Button btn_endMatch = (Button) findViewById(R.id.btn_endMatch);
 
         final EditText txt_matchNum = (EditText) findViewById(R.id.txt_matchNum);
         final EditText txt_teamNum = (EditText) findViewById(R.id.txt_teamNum);
+
+
         lowBarCrossing = false;
         def2Crossing = false;
         def3Crossing = false;
@@ -118,19 +122,37 @@ public class scoutScreen extends AppCompatActivity {
             @Override
             public void run() {
                 if (allowedToRun) {
-                    Log.d("RUNNABLE RUNNING", "The runnable is running");
+                    Log.d("RUNNABLE RUNNING", "LOOP");
                     //checking to see if each defense is represented
-                    Log.d("Loop", firstLoop.toString());
-                    Bundle extras = getIntent().getExtras();
+                    Log.d("Loop", "First loop value is " + firstLoop.toString());;
 
                     if (firstLoop) {
+                        if (spn1 == null){
+                            spn1 = 0;
+                            Log.d("SPN VALUES", "Set the SPN1 value to " + spn1);
+                        }
+                        if (spn2 == null){
+                            spn2 = 2;
+                            Log.d("SPN VALUES", "Set the SPN2 value to " + spn2);
+                        }
+                        if (spn3 == null){
+                            spn3 = 4;
+                            Log.d("SPN VALUES", "Set the SPN3 value to " + spn3);
+                        }
+                        if (spn4 == null){
+                            spn4 = 6;
+                            Log.d("SPN VALUES", "Set the SPN4 value to " + spn4);
+                        }
+
                         spn_df1.setSelection(spn1);
                         spn_df2.setSelection(spn2);
                         spn_df3.setSelection(spn3);
                         spn_df4.setSelection(spn4);
-                        Log.d("spn", " FIRST LOOP! 1 = " + spn4.toString());
-                        Log.d("spn_df4", " FIRST LOOP = " + spn_df4.getSelectedItem().toString());
                         firstLoop = false;
+                        Log.d("First LOOP", "run");
+                    }
+                    else {
+                        Log.d("First LOOP", "not run");
                     }
                     portcullis = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.portcullis))) ||
                             (spn_df2.getSelectedItem().toString().equals(getString(R.string.portcullis))) ||
@@ -139,15 +161,20 @@ public class scoutScreen extends AppCompatActivity {
                     if (portcullis){
                         if ((spn_df1.getSelectedItem().toString().equals(getString(R.string.portcullis)))){
                             def1 = getString(R.string.portcullis);
+                            spn1 = 0;
+                            Log.d("First Spinner", "Set the spn1 to Portcullis and the value of the spinner is " + spn1);
                         }
                         if(spn_df2.getSelectedItem().toString().equals(getString(R.string.portcullis))){
                             def2 = getString(R.string.portcullis);
+                            spn2 = 0;
                         }
                         if(spn_df3.getSelectedItem().toString().equals(getString(R.string.portcullis))){
                             def3 = getString(R.string.portcullis);
+                            spn3 = 0;
                         }
                         if(spn_df4.getSelectedItem().toString().equals(getString(R.string.portcullis))){
                             def4 = getString(R.string.portcullis);
+                            spn4 = 0;
                         }
                     }
 
@@ -158,6 +185,8 @@ public class scoutScreen extends AppCompatActivity {
                     if (cheval){
                         if ((spn_df1.getSelectedItem().toString().equals(getString(R.string.cheval)))){
                             def1 = getString(R.string.cheval);
+                            spn1 = 1;
+                            Log.d("First Spinner", "Set the spn1 to Cheval and the value of the spinner is " + spn1);
                         }
                         if(spn_df2.getSelectedItem().toString().equals(getString(R.string.cheval))){
                             def2 = getString(R.string.cheval);
@@ -312,6 +341,12 @@ public class scoutScreen extends AppCompatActivity {
                 }
 
 
+            }
+        });
+        btn_endMatch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // endMatch(submitMatch(dbHandler, txt_matchNum.getText(), txt_teamNum.getText(), defense, shotsTaken, spn_df1.getSelectedItem().toString(), spn_df2.getSelectedItem().toString(), spn_df3.getSelectedItem().toString(), spn_df4.getSelectedItem().toString()));
             }
         });
 
@@ -661,7 +696,7 @@ public class scoutScreen extends AppCompatActivity {
 
         if (shotsTaken!=0){
             shotsTaken = 300;
-        }
+        }//TODO: FINISH THIS
 
         Match match = new Match(dbHandler.getMatchesCount(),
                 Integer.parseInt(matchNumber),
