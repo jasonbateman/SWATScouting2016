@@ -198,7 +198,6 @@
             android:layout_height="wrap_content"
             android:text="End Match"
             android:id="@+id/btn_endMatch"
-            android:layout_marginLeft="100 dp"
             android:onClick="endMatch" />
 
     </LinearLayout>

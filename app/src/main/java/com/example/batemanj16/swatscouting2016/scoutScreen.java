@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class scoutScreen extends AppCompatActivity {
-    Time time;
+
     Boolean portcullis = false;
     Boolean cheval = false;
     Boolean moat = false;
@@ -35,6 +35,11 @@ public class scoutScreen extends AppCompatActivity {
     Boolean allowedToRun = true;
     boolean toAutoScreen = false;
     Handler handler = new Handler();
+
+    String def1 = "";
+    String def2 = "";
+    String def3 = "";
+    String def4 = "";
 
     boolean lowBarCrossing;
     boolean def2Crossing;
@@ -72,6 +77,7 @@ public class scoutScreen extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scout_screen);
+
         final Spinner spn_df1 = (Spinner) findViewById(R.id.spn_df1);
         final Spinner spn_df2 = (Spinner) findViewById(R.id.spn_df2);
         final Spinner spn_df3 = (Spinner) findViewById(R.id.spn_df3);
@@ -130,41 +136,153 @@ public class scoutScreen extends AppCompatActivity {
                             (spn_df2.getSelectedItem().toString().equals(getString(R.string.portcullis))) ||
                             (spn_df3.getSelectedItem().toString().equals(getString(R.string.portcullis))) ||
                             (spn_df4.getSelectedItem().toString().equals(getString(R.string.portcullis))));
+                    if (portcullis){
+                        if ((spn_df1.getSelectedItem().toString().equals(getString(R.string.portcullis)))){
+                            def1 = getString(R.string.portcullis);
+                        }
+                        if(spn_df2.getSelectedItem().toString().equals(getString(R.string.portcullis))){
+                            def2 = getString(R.string.portcullis);
+                        }
+                        if(spn_df3.getSelectedItem().toString().equals(getString(R.string.portcullis))){
+                            def3 = getString(R.string.portcullis);
+                        }
+                        if(spn_df4.getSelectedItem().toString().equals(getString(R.string.portcullis))){
+                            def4 = getString(R.string.portcullis);
+                        }
+                    }
 
                     cheval = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.cheval))) ||
                             (spn_df2.getSelectedItem().toString().equals(getString(R.string.cheval))) ||
                             (spn_df3.getSelectedItem().toString().equals(getString(R.string.cheval))) ||
                             (spn_df4.getSelectedItem().toString().equals(getString(R.string.cheval))));
+                    if (cheval){
+                        if ((spn_df1.getSelectedItem().toString().equals(getString(R.string.cheval)))){
+                            def1 = getString(R.string.cheval);
+                        }
+                        if(spn_df2.getSelectedItem().toString().equals(getString(R.string.cheval))){
+                            def2 = getString(R.string.cheval);
+                        }
+                        if(spn_df3.getSelectedItem().toString().equals(getString(R.string.cheval))){
+                            def3 = getString(R.string.cheval);
+                        }
+                        if(spn_df4.getSelectedItem().toString().equals(getString(R.string.cheval))){
+                            def4 = getString(R.string.cheval);
+                        }
+                    }
 
                     moat = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.moat))) ||
                             (spn_df2.getSelectedItem().toString().equals(getString(R.string.moat))) ||
                             (spn_df3.getSelectedItem().toString().equals(getString(R.string.moat))) ||
                             (spn_df4.getSelectedItem().toString().equals(getString(R.string.moat))));
+                    if (moat){
+                        if ((spn_df1.getSelectedItem().toString().equals(getString(R.string.moat)))){
+                            def1 = getString(R.string.moat);
+                        }
+                        if(spn_df2.getSelectedItem().toString().equals(getString(R.string.moat))){
+                            def2 = getString(R.string.moat);
+                        }
+                        if(spn_df3.getSelectedItem().toString().equals(getString(R.string.moat))){
+                            def3 = getString(R.string.moat);
+                        }
+                        if(spn_df4.getSelectedItem().toString().equals(getString(R.string.moat))){
+                            def4 = getString(R.string.moat);
+                        }
+                    }
 
                     ramparts = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.ramparts))) ||
                             (spn_df2.getSelectedItem().toString().equals(getString(R.string.ramparts))) ||
                             (spn_df3.getSelectedItem().toString().equals(getString(R.string.ramparts))) ||
                             (spn_df4.getSelectedItem().toString().equals(getString(R.string.ramparts))));
+                    if (ramparts){
+                        if ((spn_df1.getSelectedItem().toString().equals(getString(R.string.ramparts)))){
+                            def1 = getString(R.string.ramparts);
+                        }
+                        if(spn_df2.getSelectedItem().toString().equals(getString(R.string.ramparts))){
+                            def2 = getString(R.string.ramparts);
+                        }
+                        if(spn_df3.getSelectedItem().toString().equals(getString(R.string.ramparts))){
+                            def3 = getString(R.string.ramparts);
+                        }
+                        if(spn_df4.getSelectedItem().toString().equals(getString(R.string.ramparts))){
+                            def4 = getString(R.string.ramparts);
+                        }
+                    }
 
                     draw = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.draw))) ||
                             (spn_df2.getSelectedItem().toString().equals(getString(R.string.draw))) ||
                             (spn_df3.getSelectedItem().toString().equals(getString(R.string.draw))) ||
                             (spn_df4.getSelectedItem().toString().equals(getString(R.string.draw))));
+                    if (portcullis){
+                        if ((spn_df1.getSelectedItem().toString().equals(getString(R.string.draw)))){
+                            def1 = getString(R.string.draw);
+                        }
+                        if(spn_df2.getSelectedItem().toString().equals(getString(R.string.draw))){
+                            def2 = getString(R.string.draw);
+                        }
+                        if(spn_df3.getSelectedItem().toString().equals(getString(R.string.draw))){
+                            def3 = getString(R.string.draw);
+                        }
+                        if(spn_df4.getSelectedItem().toString().equals(getString(R.string.draw))){
+                            def4 = getString(R.string.draw);
+                        }
+                    }
 
                     sally = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.sally))) ||
                             (spn_df2.getSelectedItem().toString().equals(getString(R.string.sally))) ||
                             (spn_df3.getSelectedItem().toString().equals(getString(R.string.sally))) ||
                             (spn_df4.getSelectedItem().toString().equals(getString(R.string.sally))));
+                    if (portcullis){
+                        if ((spn_df1.getSelectedItem().toString().equals(getString(R.string.sally)))){
+                            def1 = getString(R.string.sally);
+                        }
+                        if(spn_df2.getSelectedItem().toString().equals(getString(R.string.sally))){
+                            def2 = getString(R.string.sally);
+                        }
+                        if(spn_df3.getSelectedItem().toString().equals(getString(R.string.sally))){
+                            def3 = getString(R.string.sally);
+                        }
+                        if(spn_df4.getSelectedItem().toString().equals(getString(R.string.sally))){
+                            def4 = getString(R.string.sally);
+                        }
+                    }
 
                     rock = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.rock))) ||
                             (spn_df2.getSelectedItem().toString().equals(getString(R.string.rock))) ||
                             (spn_df3.getSelectedItem().toString().equals(getString(R.string.rock))) ||
                             (spn_df4.getSelectedItem().toString().equals(getString(R.string.rock))));
+                    if (portcullis){
+                        if ((spn_df1.getSelectedItem().toString().equals(getString(R.string.rock)))){
+                            def1 = getString(R.string.rock);
+                        }
+                        if(spn_df2.getSelectedItem().toString().equals(getString(R.string.rock))){
+                            def2 = getString(R.string.rock);
+                        }
+                        if(spn_df3.getSelectedItem().toString().equals(getString(R.string.rock))){
+                            def3 = getString(R.string.rock);
+                        }
+                        if(spn_df4.getSelectedItem().toString().equals(getString(R.string.rock))){
+                            def4 = getString(R.string.rock);
+                        }
+                    }
 
                     rough = ((spn_df1.getSelectedItem().toString().equals(getString(R.string.rough))) ||
                             (spn_df2.getSelectedItem().toString().equals(getString(R.string.rough))) ||
                             (spn_df3.getSelectedItem().toString().equals(getString(R.string.rough))) ||
                             (spn_df4.getSelectedItem().toString().equals(getString(R.string.rough))));
+                    if (portcullis){
+                        if ((spn_df1.getSelectedItem().toString().equals(getString(R.string.rough)))){
+                            def1 = getString(R.string.rough);
+                        }
+                        if(spn_df2.getSelectedItem().toString().equals(getString(R.string.rough))){
+                            def2 = getString(R.string.rough);
+                        }
+                        if(spn_df3.getSelectedItem().toString().equals(getString(R.string.rough))){
+                            def3 = getString(R.string.rough);
+                        }
+                        if(spn_df4.getSelectedItem().toString().equals(getString(R.string.rough))){
+                            def4 = getString(R.string.rough);
+                        }
+                    }
                     Log.d("spn", " FIRST LOOP! 1 = " + spn4.toString());
                     Log.d("spn_df4", " FIRST LOOP = " + spn_df4.getSelectedItem().toString());
 
@@ -358,7 +476,6 @@ public class scoutScreen extends AppCompatActivity {
     Intent intent = getIntent();
 
     public void endMatch(Match match){
-        time.stopTimer();
         Log.d("Match", "Stopping Timer");
         Intent intent = new Intent(this, HomeScreen.class);
         Log.d("Match", "Switching Activities");
@@ -383,12 +500,13 @@ public class scoutScreen extends AppCompatActivity {
 
     }
 
-    public static Match submitMatch(DBHandler dbHandler, String teamNumber, String matchNumber, Boolean defense, int shotsTaken){
-        String def1 = spn_df1.getSelectedItem().toString()
-        switch(spn_def1){
-            case 1: spn_def1 = "Portcullis";
+    public static Match submitMatch(DBHandler dbHandler, String teamNumber, String matchNumber, Boolean defense, int shotsTaken, String spn_df1){
+
+        switch(spn_df1){
+            case "Portcullis":
                 break;
-            case 2: spn_def1 = ""
+            case "":
+                break;
         }
 
         if (shotsTaken!=0){
@@ -403,7 +521,7 @@ public class scoutScreen extends AppCompatActivity {
                 100,         //accuracy
                 0,          //shotsTaken
                 false,      //climb
-                0,
+                0,          //fouls
                 0,
                 0,
                 0,
@@ -425,7 +543,9 @@ public class scoutScreen extends AppCompatActivity {
 
         );
         dbHandler.createMatch(match);
+        return match;
     }
+
 }
 
 
