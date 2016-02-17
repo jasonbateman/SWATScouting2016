@@ -491,7 +491,7 @@ public class scoutScreen extends AppCompatActivity {
         spn4 = (int) spn_df4.getSelectedItemId();
 
 
-
+//yeah budddy
     }
 
     @Override
