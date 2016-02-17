@@ -173,13 +173,32 @@
 
             />
 
+        <EditText
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/txt_matchNum"
+            android:allowUndo="true"
+            android:hint="Match #"
+            android:layout_marginLeft="100dp"
+            android:linksClickable="true" />
+
+        <EditText
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/txt_teamNum"
+            android:allowUndo="true"
+            android:hint="Team #" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="End Match"
             android:id="@+id/btn_endMatch"
-            android:layout_gravity="right"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="100 dp"
             android:onClick="endMatch" />
 
     </LinearLayout>

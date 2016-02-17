@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class scoutScreen extends AppCompatActivity {
     Time time;
@@ -59,6 +62,11 @@ public class scoutScreen extends AppCompatActivity {
     int timesCrossed_def4 = 0;
     int timesCrossed_def5 = 0;
 
+    int shotsTaken = 0;
+    int shotsMade = 0;
+
+    DBHandler dbHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -77,6 +85,12 @@ public class scoutScreen extends AppCompatActivity {
         final Button btn_df3Cross = (Button) findViewById(R.id.btn_df3Cross);
         final Button btn_df4Cross = (Button) findViewById(R.id.btn_df4Cross);
         final Button btn_df5Cross = (Button) findViewById(R.id.btn_df5Cross);
+        final Button btn_highGoal = (Button) findViewById(R.id.btn_highGoal);
+        final Button btn_lowGoal = (Button) findViewById(R.id.btn_lowGoal);
+        final Button btn_miss = (Button) findViewById(R.id.btn_miss);
+
+        final EditText txt_matchNum = (EditText) findViewById(R.id.txt_matchNum);
+        final EditText txt_teamNum = (EditText) findViewById(R.id.txt_teamNum);
         lowBarCrossing = false;
         def2Crossing = false;
         def3Crossing = false;
@@ -186,7 +200,6 @@ public class scoutScreen extends AppCompatActivity {
         btn_lowBarCross.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO make sure that it only registers as 'crossing' if no other defense is being crossed
                 if(!lowBarCrossing && !def2Crossing && !def3Crossing && !def4Crossing && !def5Crossing){
                     //you're not yet crossing a defense
                     startTime = System.currentTimeMillis();
@@ -196,12 +209,13 @@ public class scoutScreen extends AppCompatActivity {
 
                     timesCrossed_lowBar++;
 
-                    //TODO change this to desired units, currently in milliseconds
+
                     timeToCross = System.currentTimeMillis() - startTime;
 
-                    //TODO add average times to cross by averaging ALL items in each timeToCross list
+
                     timeToCrossList_lowBar.add(timeToCross);
                     averageTimeToCross_lowBar  = (averageTimeToCross_lowBar*(timesCrossed_lowBar-1)+ timeToCross)/timesCrossed_lowBar;
+                    lowBarCrossing = false;
 
                 }
             }
@@ -218,6 +232,7 @@ public class scoutScreen extends AppCompatActivity {
                     timeToCross = System.currentTimeMillis() - startTime;
                     timeToCrossList_def2.add(timeToCross);
                     averageTimeToCross_def2 = (averageTimeToCross_def2*(timesCrossed_def2-1)+timeToCross)/timesCrossed_def2;
+                    def2Crossing = false;
                 }
 
             }
@@ -234,6 +249,7 @@ public class scoutScreen extends AppCompatActivity {
                     timeToCross = System.currentTimeMillis() - startTime;
                     timeToCrossList_def3.add(timeToCross);
                     averageTimeToCross_def3 = (averageTimeToCross_def3*(timesCrossed_def3-1)+timeToCross)/timesCrossed_def3;
+                    def3Crossing = false;
                 }
 
 
@@ -255,6 +271,7 @@ public class scoutScreen extends AppCompatActivity {
                     timeToCross = System.currentTimeMillis() - startTime;
                     timeToCrossList_def4.add(timeToCross);
                     averageTimeToCross_def4 = (averageTimeToCross_def4*(timesCrossed_def4-1)+timeToCross)/timesCrossed_def4;
+                    def4Crossing = false;
                 }
 
             }
@@ -271,8 +288,35 @@ public class scoutScreen extends AppCompatActivity {
                     timeToCross = System.currentTimeMillis() - startTime;
                     timeToCrossList_def5.add(timeToCross);
                     averageTimeToCross_def5 = (averageTimeToCross_def5*(timesCrossed_def5-1)+timeToCross)/timesCrossed_def5;
+                    def5Crossing = false;
 
                 }
+
+            }
+        });
+
+        btn_highGoal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shotsTaken++;
+                shotsMade++;
+
+            }
+        });
+
+        btn_lowGoal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shotsTaken++;
+                shotsMade++;
+
+            }
+        });
+
+        btn_miss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shotsTaken++;
 
             }
         });
@@ -320,5 +364,69 @@ public class scoutScreen extends AppCompatActivity {
         Log.d("Match", "Switching Activities");
         startActivity(intent);
     }
+
+
+    public static String getCurrentTimeStamp(){
+        SimpleDateFormat s = new SimpleDateFormat("hhmmss");
+        String format = s.format(new Date());
+        return format;
+
+    }
+
+    public static String getTimeElapsed(Integer startTime){
+
+        SimpleDateFormat newTimeFormat = new SimpleDateFormat("hhmmss");
+        String newTime = newTimeFormat.format(new Date());
+        int timeElapsed = Integer.parseInt(newTime.toString()) - Integer.parseInt(startTime.toString());
+        Integer.toString(timeElapsed);
+        return Integer.toString(timeElapsed);
+
+    }
+
+    public static Match submitMatch(DBHandler dbHandler, String teamNumber, String matchNumber, Boolean defense, int shotsTaken){
+        String def1 = spn_df1.getSelectedItem().toString()
+        switch(spn_def1){
+            case 1: spn_def1 = "Portcullis";
+                break;
+            case 2: spn_def1 = ""
+        }
+
+        if (shotsTaken!=0){
+            shotsTaken = 300;
+        }
+
+        Match match = new Match(dbHandler.getMatchesCount(),
+                Integer.parseInt(matchNumber),
+                Integer.parseInt(teamNumber),
+                defense,
+                "",
+                100,         //accuracy
+                0,          //shotsTaken
+                false,      //climb
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+
+        );
+        dbHandler.createMatch(match);
+    }
 }
+
+
 

@@ -15,26 +15,7 @@ public class Time {
     public static String startTime = "000000";
     public Boolean isTimerRunning = false;
     public Boolean isFirstTimerLoop = true;
-    Handler handler = new Handler();
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            //initialize the Timer
-            if (isFirstTimerLoop) {
-                isFirstTimerLoop = false;
-                isTimerRunning = true;
-                setStartTime();
-                Log.d("Timer", "Started!");
-            }
 
-
-
-            if (isTimerRunning) {
-                handler.postDelayed(this, 500);
-
-            }
-        }
-    };
 
 
     public static String getCurrentTimeStamp(){
@@ -54,13 +35,8 @@ public class Time {
 
     }
 
-    public static void setStartTime(){
-        startTime = getCurrentTimeStamp();
-    }
 
     public void startMatch(DBHandler dbHandler, String teamNumber, String matchNumber, Boolean defense){
-        isFirstTimerLoop = true;
-        runnable.run();
 
         Match match = new Match(dbHandler.getMatchesCount(),
                 Integer.parseInt(matchNumber),
