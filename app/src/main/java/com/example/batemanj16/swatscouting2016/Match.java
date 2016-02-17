@@ -9,16 +9,26 @@ public class Match {
     private String _notes;
 
     public Match(int id, int matchNum, int teamNum, boolean defense, String notes,
-                 int accuracy, int shotsTaken, boolean climb, int fouls,
-                  int avgPort, int numPort,
-                  int avgCheval, int numCheval,
-                  int avgMoat, int numMoat,
-                  int avgRamp, int numRamp,
-                  int avgDraw, int numDraw,
-                  int avgSally, int numSally,
-                  int avgRough, int numRough,
-                  int avgRock, int numRock,
-                  int avgLow, int numLow){
+                 double accuracy, int shotsTaken, boolean climb, int fouls,
+                 double avgPort,
+                 double avgCheval,
+                 double avgMoat,
+                 double avgRamp,
+                 double avgDraw,
+                 double avgSally,
+                 double avgRough,
+                 double avgRock,
+                 double avgLow,
+                 int numPort,
+                 int numCheval,
+                 int numMoat,
+                 int numRamp,
+                 int numDraw,
+                 int numSally,
+                 int numRough,
+                 int numRock,
+                 int numLow,
+                 ){
 
 
         id = _id;

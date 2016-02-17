@@ -49,11 +49,11 @@ public class scoutScreen extends AppCompatActivity {
 
     double startTime;
     double timeToCross;
-    double averageTimeToCross_lowBar;
-    double averageTimeToCross_def2;
-    double averageTimeToCross_def3;
-    double averageTimeToCross_def4;
-    double averageTimeToCross_def5;
+    public double averageTimeToCross_lowBar;
+    public double averageTimeToCross_def2;
+    public double averageTimeToCross_def3;
+    public double averageTimeToCross_def4;
+    public double averageTimeToCross_def5;
 
     ArrayList<Double> timeToCrossList_lowBar;
     ArrayList<Double> timeToCrossList_def2;
@@ -178,13 +178,13 @@ public class scoutScreen extends AppCompatActivity {
                         if ((spn_df1.getSelectedItem().toString().equals(getString(R.string.moat)))){
                             def1 = getString(R.string.moat);
                         }
-                        if(spn_df2.getSelectedItem().toString().equals(getString(R.string.moat))){
+                        else if(spn_df2.getSelectedItem().toString().equals(getString(R.string.moat))){
                             def2 = getString(R.string.moat);
                         }
-                        if(spn_df3.getSelectedItem().toString().equals(getString(R.string.moat))){
+                        else if(spn_df3.getSelectedItem().toString().equals(getString(R.string.moat))){
                             def3 = getString(R.string.moat);
                         }
-                        if(spn_df4.getSelectedItem().toString().equals(getString(R.string.moat))){
+                        else if(spn_df4.getSelectedItem().toString().equals(getString(R.string.moat))){
                             def4 = getString(R.string.moat);
                         }
                     }
@@ -500,14 +500,164 @@ public class scoutScreen extends AppCompatActivity {
 
     }
 
-    public static Match submitMatch(DBHandler dbHandler, String teamNumber, String matchNumber, Boolean defense, int shotsTaken, String spn_df1){
+    public Match submitMatch(DBHandler dbHandler, String teamNumber, String matchNumber, Boolean defense, int shotsTaken, String spn_df1, String spn_df2, String spn_df3, String spn_df4){
 
-        switch(spn_df1){
+        double _avgPort = 0;
+        double _avgCheval =0;
+        double _avgMoat=0;
+        double _avgRamp=0;
+        double _avgDraw=0;
+        double _avgSally=0;
+        double _avgRough=0;
+        double _avgRock=0;
+
+        int  _numPort= 0;
+        int _numCheval = 0;
+        int _numMoat = 0;
+        int _numRamp = 0;
+        int _numDraw = 0;
+        int _numSally = 0;
+        int _numRough = 0;
+        int _numRock = 0;
+
+
+        switch (spn_df1){
             case "Portcullis":
+                _avgPort = averageTimeToCross_def2;
+                _numPort = timesCrossed_def2;
                 break;
-            case "":
+            case "Cheval":
+                _avgCheval = averageTimeToCross_def2;
+                _numCheval = timesCrossed_def2;
+                break;
+            case "Moat":
+                _avgMoat = averageTimeToCross_def2;
+                _numMoat = timesCrossed_def2;
+                break;
+            case "Ramp":
+                _avgRamp = averageTimeToCross_def2;
+                _numRamp = timesCrossed_def2;
+                break;
+            case "Draw":
+                _avgDraw = averageTimeToCross_def2;
+                _numDraw = timesCrossed_def2;
+                break;
+            case "Sally":
+                _avgSally = averageTimeToCross_def2;
+                _numSally = timesCrossed_def2;
+                break;
+            case "Rough":
+                _avgRough = averageTimeToCross_def2;
+                _numRough = timesCrossed_def2;
+                break;
+            case "Rock":
+                _avgRock = averageTimeToCross_def2;
+                _numRock = timesCrossed_def2;
                 break;
         }
+        switch (spn_df2){
+            case "Portcullis":
+                _avgPort = averageTimeToCross_def3;
+                _numPort = timesCrossed_def3;
+                break;
+            case "Cheval":
+                _avgCheval = averageTimeToCross_def3;
+                _numCheval = timesCrossed_def3;
+                break;
+            case "Moat":
+                _avgMoat = averageTimeToCross_def3;
+                _numMoat = timesCrossed_def3;
+                break;
+            case "Ramp":
+                _avgRamp = averageTimeToCross_def3;
+                _numRamp = timesCrossed_def3;
+                break;
+            case "Draw":
+                _avgDraw = averageTimeToCross_def3;
+                _numDraw = timesCrossed_def3;
+                break;
+            case "Sally":
+                _avgSally = averageTimeToCross_def3;
+                _numSally = timesCrossed_def3;
+                break;
+            case "Rough":
+                _avgRough = averageTimeToCross_def3;
+                _numRough = timesCrossed_def3;
+                break;
+            case "Rock":
+                _avgRock = averageTimeToCross_def3;
+                _numRock = timesCrossed_def3;
+                break;
+        }
+        switch (spn_df3){
+            case "Portcullis":
+                _avgPort = averageTimeToCross_def4;
+                _numPort = timesCrossed_def4;
+                break;
+            case "Cheval":
+                _avgCheval = averageTimeToCross_def4;
+                _numCheval = timesCrossed_def4;
+                break;
+            case "Moat":
+                _avgMoat = averageTimeToCross_def4;
+                _numMoat = timesCrossed_def4;
+                break;
+            case "Ramp":
+                _avgRamp = averageTimeToCross_def4;
+                _numRamp = timesCrossed_def4;
+                break;
+            case "Draw":
+                _avgDraw = averageTimeToCross_def4;
+                _numDraw = timesCrossed_def4;
+                break;
+            case "Sally":
+                _avgSally = averageTimeToCross_def4;
+                _numSally = timesCrossed_def4;
+                break;
+            case "Rough":
+                _avgRough = averageTimeToCross_def4;
+                _numRough = timesCrossed_def4;
+                break;
+            case "Rock":
+                _avgRock = averageTimeToCross_def4;
+                _numRock = timesCrossed_def4;
+                break;
+        }
+        switch (spn_df4){
+            case "Portcullis":
+                _avgPort = averageTimeToCross_def5;
+                _numPort = timesCrossed_def5;
+                break;
+            case "Cheval":
+                _avgCheval = averageTimeToCross_def5;
+                _numCheval = timesCrossed_def5;
+                break;
+            case "Moat":
+                _avgMoat = averageTimeToCross_def5;
+                _numMoat = timesCrossed_def5;
+                break;
+            case "Ramp":
+                _avgRamp = averageTimeToCross_def5;
+                _numRamp = timesCrossed_def5;
+                break;
+            case "Draw":
+                _avgDraw = averageTimeToCross_def5;
+                _numDraw = timesCrossed_def5;
+                break;
+            case "Sally":
+                _avgSally = averageTimeToCross_def5;
+                _numSally = timesCrossed_def5;
+                break;
+            case "Rough":
+                _avgRough = averageTimeToCross_def5;
+                _numRough = timesCrossed_def5;
+                break;
+            case "Rock":
+                _avgRock = averageTimeToCross_def5;
+                _numRock = timesCrossed_def5;
+                break;
+        }
+
 
         if (shotsTaken!=0){
             shotsTaken = 300;
@@ -522,24 +672,24 @@ public class scoutScreen extends AppCompatActivity {
                 0,          //shotsTaken
                 false,      //climb
                 0,          //fouls
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
+                _avgPort,          //avgport
+                _avgCheval,
+                _avgMoat,
+                _avgRamp,
+                _avgDraw,
+                _avgSally,
+                _avgRough,
+                _avgRock,
+                averageTimeToCross_lowBar,          //avgLow
+                _numPort,
+                _numCheval,
+                _numMoat,
+                _numRamp,
+                _numDraw,
+                _numSally,
+                _numRough,
+                _numRock,
+                timesCrossed_lowBar
 
         );
         dbHandler.createMatch(match);
