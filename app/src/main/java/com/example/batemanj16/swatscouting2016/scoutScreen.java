@@ -70,15 +70,14 @@ public class scoutScreen extends AppCompatActivity {
 
     int shotsTaken = 0;
     int shotsMade = 0;
-
     DBHandler dbHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scout_screen);
-
         final Spinner spn_df1 = (Spinner) findViewById(R.id.spn_df1);
         final Spinner spn_df2 = (Spinner) findViewById(R.id.spn_df2);
         final Spinner spn_df3 = (Spinner) findViewById(R.id.spn_df3);
@@ -99,7 +98,7 @@ public class scoutScreen extends AppCompatActivity {
 
         final EditText txt_matchNum = (EditText) findViewById(R.id.txt_matchNum);
         final EditText txt_teamNum = (EditText) findViewById(R.id.txt_teamNum);
-
+        dbHandler = new DBHandler(getApplicationContext());
 
         lowBarCrossing = false;
         def2Crossing = false;
@@ -316,7 +315,7 @@ public class scoutScreen extends AppCompatActivity {
                     Log.d("spn_df4", " FIRST LOOP = " + spn_df4.getSelectedItem().toString());
 
                     if (!toAutoScreen) {
-                        handler.postDelayed(this, 500);
+                        handler.postDelayed(this, 700);
 
 
                     }
@@ -346,7 +345,9 @@ public class scoutScreen extends AppCompatActivity {
         btn_endMatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // endMatch(submitMatch(dbHandler, txt_matchNum.getText(), txt_teamNum.getText(), defense, shotsTaken, spn_df1.getSelectedItem().toString(), spn_df2.getSelectedItem().toString(), spn_df3.getSelectedItem().toString(), spn_df4.getSelectedItem().toString()));
+
+                Log.d("Submitting a match", "Running End match");
+                endMatch(submitMatch(dbHandler, txt_teamNum.getText().toString(), txt_matchNum.getText().toString(), defense, shotsTaken, spn_df1.getSelectedItem().toString(), spn_df2.getSelectedItem().toString(), spn_df3.getSelectedItem().toString(), spn_df4.getSelectedItem().toString()));
             }
         });
 
@@ -536,7 +537,7 @@ public class scoutScreen extends AppCompatActivity {
     }
 
     public Match submitMatch(DBHandler dbHandler, String teamNumber, String matchNumber, Boolean defense, int shotsTaken, String spn_df1, String spn_df2, String spn_df3, String spn_df4){
-
+        Log.d("Submitting a match", "Starting the submitMatch() function");
         double _avgPort = 0;
         double _avgCheval =0;
         double _avgMoat=0;
@@ -590,6 +591,7 @@ public class scoutScreen extends AppCompatActivity {
                 _numRock = timesCrossed_def2;
                 break;
         }
+        Log.d("Submitting a match", "Setting the first spn's Value");
         switch (spn_df2){
             case "Portcullis":
                 _avgPort = averageTimeToCross_def3;
@@ -624,6 +626,7 @@ public class scoutScreen extends AppCompatActivity {
                 _numRock = timesCrossed_def3;
                 break;
         }
+        Log.d("Submitting a match", "Setting the second spn's Value");
         switch (spn_df3){
             case "Portcullis":
                 _avgPort = averageTimeToCross_def4;
@@ -658,6 +661,7 @@ public class scoutScreen extends AppCompatActivity {
                 _numRock = timesCrossed_def4;
                 break;
         }
+        Log.d("Submitting a match", "Setting the third spn's Value");
         switch (spn_df4){
             case "Portcullis":
                 _avgPort = averageTimeToCross_def5;
@@ -692,12 +696,13 @@ public class scoutScreen extends AppCompatActivity {
                 _numRock = timesCrossed_def5;
                 break;
         }
+        Log.d("Submitting a match", "Setting the fourth spn's Value");
 
 
-        if (shotsTaken!=0){
+        /*if (shotsTaken!=0){
             shotsTaken = 300;
         }//TODO: FINISH THIS
-
+        */
         Match match = new Match(dbHandler.getMatchesCount(),
                 Integer.parseInt(matchNumber),
                 Integer.parseInt(teamNumber),
@@ -727,7 +732,10 @@ public class scoutScreen extends AppCompatActivity {
                 timesCrossed_lowBar
 
         );
+        Log.d("Submitting a match", "Match created. ID is " + dbHandler.getMatchesCount());
         dbHandler.createMatch(match);
+        Log.d("MATCH DATA", "ID is" + match.getId() + "\n match Number is " + match.getMatchNum() + "\n team number is " + match.getTeamNum());
+
         return match;
     }
 

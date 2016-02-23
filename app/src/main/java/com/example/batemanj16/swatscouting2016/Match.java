@@ -1,5 +1,4 @@
 package com.example.batemanj16.swatscouting2016;
-//TODO:Add accuracy and scoring and climb/surround and fouls
 /**
  * Created by batemanj16 on 1/27/2016.
  */

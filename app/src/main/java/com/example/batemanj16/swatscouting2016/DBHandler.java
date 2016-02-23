@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +18,16 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "matchManager",
             TABLE_MATCH = "matches",
+
             KEY_ID = "id",
             KEY_MATCH_NUMBER = "matchNum",
             KEY_TEAM_NUMBER = "teamNum",
             KEY_DEFENSE = "defense",
-            KEY_NOTES = "notes", KEY_ACCURACY = "accuracy", KEY_SHOTS_TAKEN = "shotsTaken", KEY__CLIMB = "climb", KEY_FOULS = "fouls",
+            KEY_NOTES = "notes",
+            KEY_ACCURACY = "accuracy",
+            KEY_SHOTS_TAKEN = "shotsTaken",
+            KEY_CLIMB = "climb",
+            KEY_FOULS = "fouls",
 
             KEY_AVG_PORT = "avgPort",
             KEY_AVG_CHEVAL = "avgCheval",
@@ -50,6 +56,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        Log.d("DBHandler", "On create running");
         db.execSQL("CREATE TABLE " + TABLE_MATCH
                 + "(" + KEY_ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -59,7 +66,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + KEY_NOTES + " TEXT,"
                 + KEY_ACCURACY + " INTEGER,"
                 + KEY_SHOTS_TAKEN + " INTEGER,"
-                + KEY__CLIMB + " BIT,"
+                + KEY_CLIMB + " BIT,"
                 + KEY_FOULS + " INTEGER,"
 
                 + KEY_AVG_PORT + " FLOAT,"
@@ -67,7 +74,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + KEY_AVG_MOAT + " FLOAT,"
                 + KEY_AVG_RAMP + " FLOAT,"
                 + KEY_AVG_DRAW + " FLOAT,"
-                + KEY_AVG_SALLY + " IFLOAT,"
+                + KEY_AVG_SALLY + " FLOAT,"
                 + KEY_AVG_ROUGH + " FLOAT,"
                 + KEY_AVG_ROCK + " FLOAT,"
                 + KEY_AVG_LOW + " FLOAT,"
@@ -96,13 +103,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 
-        values.put(KEY_MATCH_NUMBER, match.getMatchNum());
+       /* values.put(KEY_MATCH_NUMBER, match.getMatchNum());
         values.put(KEY_TEAM_NUMBER, match.getTeamNum());
         values.put(KEY_DEFENSE, match.getDefense());
         values.put(KEY_NOTES, match.getNotes());
         values.put(KEY_ACCURACY, match.getAccuracy());
         values.put(KEY_SHOTS_TAKEN, match.getShotsTaken());
-        values.put(KEY__CLIMB, match.getClimb());
+        values.put(KEY_CLIMB, match.getClimb());
         values.put(KEY_FOULS, match.getFouls());
 
         values.put(KEY_AVG_PORT, match.getAvgPort());
@@ -124,8 +131,41 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_NUM_SALLY, match.getNumSally());
         values.put(KEY_NUM_ROUGH, match.getNumRough());
         values.put(KEY_NUM_ROCK, match.getNumRock());
+        Log.d("DBHandler", "All values except for NumLow have been inputted");
         values.put(KEY_NUM_LOW, match.getNumLow());
+        Log.d("DBHandler", "The Num Low column has " + match.getNumLow());
+*/
+        values.put(KEY_MATCH_NUMBER, match.getMatchNum());
+        values.put(KEY_TEAM_NUMBER, match.getTeamNum());
+        values.put(KEY_DEFENSE, match.getDefense());
+        values.put(KEY_NOTES, match.getNotes());
+        values.put(KEY_ACCURACY, match.getAccuracy());
+        values.put(KEY_SHOTS_TAKEN, match.getShotsTaken());
+        values.put(KEY_CLIMB, match.getClimb());
+        values.put(KEY_FOULS, match.getFouls());
 
+        values.put(KEY_AVG_PORT, 0);
+        values.put(KEY_AVG_CHEVAL, 0);
+        values.put(KEY_AVG_MOAT, 0);
+        values.put(KEY_AVG_RAMP, 0);
+        values.put(KEY_AVG_DRAW, 0);
+        values.put(KEY_AVG_SALLY, 0);
+        values.put(KEY_AVG_ROUGH, 0);
+        values.put(KEY_AVG_RAMP, 0);
+        values.put(KEY_AVG_ROCK, 0);
+        values.put(KEY_AVG_LOW, 0);
+
+        values.put(KEY_NUM_PORT,0);
+        values.put(KEY_NUM_CHEVAL, 0);
+        values.put(KEY_NUM_MOAT, 0);
+        values.put(KEY_NUM_RAMP, 0);
+        values.put(KEY_NUM_DRAW, 0);
+        values.put(KEY_NUM_SALLY, 0);
+        values.put(KEY_NUM_ROUGH, 0);
+        values.put(KEY_NUM_ROCK, 0);
+        Log.d("DBHandler", "All values except for NumLow have been inputted");
+        //values.put(KEY_NUM_LOW, match.getNumLow());
+        Log.d("DBHandler", "The Num Low column has " + match.getNumLow());
         db.insert(TABLE_MATCH, null, values);
         db.close();
 
@@ -143,7 +183,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 KEY_NOTES,
                 KEY_ACCURACY,
                 KEY_SHOTS_TAKEN,
-                KEY__CLIMB,
+                KEY_CLIMB,
                 KEY_FOULS,
 
                 KEY_AVG_PORT,
@@ -214,12 +254,15 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public int getMatchesCount(){
-
+        Log.d("DBHandler:", "Running getMatchesCount()");
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT & FROM " + TABLE_MATCH, null);
+        Log.d("DBHandler:", "Running getMatchesCount().getReadableDatabase");
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_MATCH, null);
+        Log.d("DBHandler:", "Created rawQuery");
         int count = cursor.getCount();
         cursor.close();
         db.close();
+        Log.d("DBHandler", "Finished getMatchesCount");
         return count;
 
 
@@ -236,7 +279,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_NOTES, match.getNotes());
         values.put(KEY_ACCURACY, match.getAccuracy());
         values.put(KEY_SHOTS_TAKEN, match.getShotsTaken());
-        values.put(KEY__CLIMB, match.getClimb());
+        values.put(KEY_CLIMB, match.getClimb());
         values.put(KEY_FOULS, match.getFouls());
 
         values.put(KEY_AVG_PORT, match.getAvgPort());
